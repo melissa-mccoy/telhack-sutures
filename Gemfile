@@ -7,8 +7,6 @@ gem 'rails', '4.1.5'
 gem 'bootstrap-sass', '3.3.0.0'
 gem 'font-awesome-rails', '4.3.0.0'
 
-# SQLite 3
-gem 'sqlite3'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
