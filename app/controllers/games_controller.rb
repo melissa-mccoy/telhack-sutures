@@ -6,6 +6,11 @@ class GamesController < ApplicationController
   def dashboard
   end
 
+  def score_image
+    puts(params)
+    render :json => {"score1" => 10, "score2" => 5}
+  end
+
   def new
     @game = Game.new;
   end

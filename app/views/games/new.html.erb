@@ -13,7 +13,11 @@
       <h1><strong>Who is pictured below?</strong></h1>
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-          <img id="photo" class="img-responsive img-center" style="max-height:200px;margin-top:15px;margin-bottom:25px;" />
+          <video id="video" width="640" height="480" autoplay></video>
+          <button id="snap" class="btn btn-primary block m-b ans inline dim">Snap Photo</button>
+          <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
+          <img id="photo" class="img-responsive img-center"/> <!--style="max-height:200px;margin-top:15px;margin-bottom:25px;"-->
+          <button id="retake" style="display: none !important;" class="btn btn-primary block m-b ans inline dim">Retake Photo</button>
         </div>
       </div>
       <div class="row">
@@ -180,6 +184,96 @@ $(document).ready(function() {
   // Start Game (Refactor ToDos: (1) divide functions into Game Controller & Game Model. (2) move code into asset pipeline)
   var game = new Game()
   game.start()
+
+
+  // PHOTO CAPTURE
+
+  function convertCanvasToImage(canvas) {
+    var image = new Image();
+    image.src = canvas.toDataURL("image/png");
+    return image;
+  }
+
+  // Put event listeners into place
+  window.addEventListener("DOMContentLoaded", function() {
+    // Grab elements, create settings, etc.
+    var canvas = document.getElementById("canvas"),
+        context = canvas.getContext("2d"),
+        video = document.getElementById("video"),
+        videoObj = { "video": true },
+        snap = document.getElementById("snap"),
+        retake = document.getElementById("retake"),
+        photo = document.getElementById("photo"),
+        localStream,
+        errBack = function(error) {
+          console.log("Video capture error: ", error.code);
+        };
+
+
+    // Put video listeners into place
+    if(navigator.getUserMedia) { // Standard
+      navigator.getUserMedia(videoObj, function(stream) {
+        video.src = stream;
+        video.play();
+        localStream = stream;
+      }, errBack);
+    } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+      navigator.webkitGetUserMedia(videoObj, function(stream){
+        video.src = window.webkitURL.createObjectURL(stream);
+        video.play();
+        localStream = stream;
+      }, errBack);
+    }
+    else if(navigator.mozGetUserMedia) { // Firefox-prefixed
+      navigator.mozGetUserMedia(videoObj, function(stream){
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+        localStream = stream;
+      }, errBack);
+    }
+
+    // Trigger photo take
+    snap.addEventListener("click", function() {
+      // Get current frame from video, show, hide video
+      context.drawImage(video, 0, 0);
+      photo.src = canvas.toDataURL("image/jpg");
+      //var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+      //console.log(imageData);
+      video.pause();
+      video.style.display = "none";
+      snap.setAttribute('style', 'display:none !important');
+      retake.style.display = 'inline-block';
+      photo.style.display = "block";
+
+      var dataURL = canvas.toDataURL();
+      $.ajax({
+        type: "GET",
+        url: "/score_image/",
+        data: {
+          imgBase64: dataURL
+        } 
+      }).done(function(o) {
+        console.log('saved');
+        // If you want the file to be visible in the browser
+        // - please modify the callback in javascript. All you
+        // need is to return the url to the file, you just saved
+        // and than put the image in your browser.
+      });
+
+    });
+
+    // Trigger to retake photo
+    retake.addEventListener("click", function() {
+      retake.setAttribute('style', 'display:none !important');
+      snap.display = 'inline-block';
+      video.play();
+      video.style.display = 'block';
+      photo.style.display = "none";
+      snap.style.display = 'inline-block';
+    });
+
+  }, false);
+  
 
 });
 </script>
