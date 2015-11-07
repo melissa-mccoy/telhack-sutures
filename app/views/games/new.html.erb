@@ -90,9 +90,10 @@ $(document).ready(function() {
     start: function() {
       //Seed all students
       $.ajax({
-        method: "GET",
-        url: "/students",
-        dataType: "json"
+        method: "POST",
+        url: "/score",
+        dataType: "json",
+        data: { name: "John", location: "Boston" }
       }).done(function(studentsJsonArray) {
           console.log("Response successful")
           console.log(studentsJsonArray)

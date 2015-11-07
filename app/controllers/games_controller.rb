@@ -15,6 +15,10 @@ class GamesController < ApplicationController
     redirect_to games_path
   end
 
+  def score(params)
+    puts params
+  end
+
   private
     def game_params
       params.require(:game).permit(:name, :score, :game_type)
