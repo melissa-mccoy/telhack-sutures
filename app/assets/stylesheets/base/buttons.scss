@@ -11,7 +11,7 @@
 }
 
 .btn-primary.btn-outline {
-  color: #083C76;
+  color: #eed500;
 }
 
 .btn-success.btn-outline {
@@ -39,14 +39,14 @@
 }
 
 .btn-primary {
-  background-color: #083C76;
-  border-color: #083C76;
+  background-color: #eed500;
+  border-color: #eed500;
   color: white;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
-  background-color: darken(#083C76, 3%);
-  border-color: darken(#083C76, 3%);
+  background-color: darken(#eed500, 3%);
+  border-color: darken(#eed500, 3%);
   color: white;
 }
 
@@ -55,8 +55,8 @@
 }
 
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary.active[disabled], fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
-  background-color: lighten(#083C76, 4%);
-  border-color: lighten(#083C76, 4%);
+  background-color: lighten(#eed500, 4%);
+  border-color: lighten(#eed500, 4%);
 }
 
 .btn-success {
@@ -169,7 +169,7 @@
 }
 
 .btn-link:hover, .btn-link:focus, .btn-link:active, .btn-link.active, .open .dropdown-toggle.btn-link {
-  color: #083C76;
+  color: #eed500;
   text-decoration: none;
 }
 
@@ -244,11 +244,11 @@ button.dim:active {
 }
 
 button.btn-primary.dim {
-  box-shadow: inset 0px 0px 0px darken(#083C76, 6%), 0px 5px 0px 0px darken(#083C76, 6%), 0px 10px 5px #999999;
+  box-shadow: inset 0px 0px 0px darken(#eed500, 6%), 0px 5px 0px 0px darken(#eed500, 6%), 0px 10px 5px #999999;
 }
 
 button.btn-primary.dim:active {
-  box-shadow: inset 0px 0px 0px darken(#083C76, 6%), 0px 2px 0px 0px darken(#083C76, 6%), 0px 5px 3px #999999;
+  box-shadow: inset 0px 0px 0px darken(#eed500, 6%), 0px 2px 0px 0px darken(#eed500, 6%), 0px 5px 3px #999999;
 }
 
 button.btn-default.dim {

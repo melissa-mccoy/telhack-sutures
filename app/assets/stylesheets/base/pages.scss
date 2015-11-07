@@ -352,7 +352,7 @@ ul.notes li div {
 }
 
 .category-list li a .text-navy {
-  color: #083C76;
+  color: #eed500;
 }
 
 .category-list li a .text-primary {
@@ -642,12 +642,12 @@ dd.project-people {
 .faq-question {
   font-size: 18px;
   font-weight: 600;
-  color: #083C76;
+  color: #eed500;
   display: block;
 }
 
 .faq-question:hover {
-  color: darken(#083C76, 5%);
+  color: darken(#eed500, 5%);
 }
 
 .faq-answer {
@@ -893,7 +893,7 @@ dd.project-people {
 /* ISSUE TRACKER */
 
 .issue-tracker .btn-link {
-  color: #083C76;
+  color: #eed500;
 }
 
 table.issue-tracker tbody tr td {
@@ -956,7 +956,7 @@ table.issue-tracker tbody tr td {
   border-left: 3px solid $blue;
 }
 .agile-list li.success-element {
-  border-left: 3px solid #083C76;
+  border-left: 3px solid #eed500;
 }
 .agile-detail {
   margin-top: 5px;
@@ -1032,14 +1032,14 @@ del {
 
 .product-name:hover,
 .product-name:focus {
-  color: #083C76;
+  color: #eed500;
 }
 
 .product-price {
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
-  background-color: #083C76;
+  background-color: #eed500;
   padding: 6px 12px;
 
   position: absolute;

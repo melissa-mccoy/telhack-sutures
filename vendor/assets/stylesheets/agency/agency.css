@@ -14,7 +14,7 @@ body {
 }
 
 .text-primary {
-    color: #083C76;
+    color: #eed500;
 }
 
 p {
@@ -38,11 +38,11 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: #083C76;
+    color: #eed500;
 }
 
 a {
-    color: #083C76;
+    color: #eed500;
 }
 
 h1,
@@ -78,16 +78,16 @@ h6 {
 }
 
 .bg-darkest-gray {
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .btn-primary {
-    border-color: #083C76;
+    border-color: #eed500;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #fff;
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .btn-primary:hover,
@@ -95,9 +95,9 @@ h6 {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    border-color: #083C76;
+    border-color: #eed500;
     color: #fff;
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .btn-primary:active,
@@ -121,12 +121,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: #083C76;
-    background-color: #083C76;
+    border-color: #eed500;
+    background-color: #eed500;
 }
 
 .btn-primary .badge {
-    color: #083C76;
+    color: #eed500;
     background-color: #fff;
 }
 
@@ -137,7 +137,7 @@ fieldset[disabled] .btn-primary.active {
     font-size: 18px;
     font-weight: 700;
     color: #fff;
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .btn-xl:hover,
@@ -146,7 +146,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
     color: #fff;
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .btn-xl:active,
@@ -170,31 +170,31 @@ fieldset[disabled] .btn-xl:active,
 .btn-xl.disabled.active,
 .btn-xl[disabled].active,
 fieldset[disabled] .btn-xl.active {
-    border-color: #083C76;
-    background-color: #083C76;
+    border-color: #eed500;
+    background-color: #eed500;
 }
 
 .btn-xl .badge {
-    color: #083C76;
+    color: #eed500;
     background-color: #fff;
 }
 
 .navbar-default {
     border-color: transparent;
-    background-color: #083C76;
+    background-color: #eed500;
     border-bottom: 0px !important; /* Overwrite template style.css*/
 }
 
 .navbar-default .navbar-brand {
     font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-    color: #083C76;
+    color: #eed500;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
 .navbar-default .navbar-brand.active {
-    color: #083C76;
+    color: #eed500;
 }
 
 .navbar-default .navbar-collapse {
@@ -202,8 +202,8 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #083C76;
-    background-color: #083C76;
+    border-color: #eed500;
+    background-color: #eed500;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -212,7 +212,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .navbar-default .nav li a {
@@ -244,13 +244,13 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .navbar-nav>.active>a {
     border-radius: 0;
     color: #fff;
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus {
     color: #fff;
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .navbar-default .navbar-nav>.activeNav>a {
@@ -289,7 +289,7 @@ fieldset[disabled] .btn-xl.active {
 
     .navbar-default.navbar-shrink {
         padding: 10px 0;
-        background-color: #083C76;
+        background-color: #eed500;
     }
 
     .navbar-default.navbar-shrink .navbar-brand {
@@ -508,7 +508,7 @@ section h3.section-subheading {
     border-radius: 100%;
     text-align: center;
     color: #fff;
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .timeline>li .timeline-image h4 {
@@ -676,7 +676,7 @@ aside.clients img:active {
 }
 
 section#contact {
-    background-color: #083C76;
+    background-color: #eed500;
     background-image: url(/assets/welcome/map-image.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -704,7 +704,7 @@ section#contact .form-group textarea.form-control {
 }
 
 section#contact .form-control:focus {
-    border-color: #083C76;
+    border-color: #eed500;
     box-shadow: none;
 }
 
@@ -773,7 +773,7 @@ ul.social-buttons li a {
     line-height: 40px;
     outline: 0;
     color: #fff;
-    background-color: #083C76;
+    background-color: #eed500;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
@@ -782,7 +782,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
-    background-color: #083C76;
+    background-color: #eed500;
 }
 
 .btn:focus,
@@ -847,7 +847,7 @@ ul.social-buttons li a:active {
     width: 1px;
     height: 75px;
     margin-left: 35px;
-    background-color: #083C76;
+    background-color: #eed500;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -857,7 +857,7 @@ ul.social-buttons li a:active {
     z-index: 1052;
     width: 1px;
     height: 75px;
-    background-color: #083C76;
+    background-color: #eed500;
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
@@ -870,12 +870,12 @@ ul.social-buttons li a:active {
 
 ::-moz-selection {
     text-shadow: none;
-    background: #083C76;
+    background: #eed500;
 }
 
 ::selection {
     text-shadow: none;
-    background: #083C76;
+    background: #eed500;
 }
 
 img::selection {
@@ -887,7 +887,7 @@ img::-moz-selection {
 }
 
 body {
-    webkit-tap-highlight-color: #083C76;
+    webkit-tap-highlight-color: #eed500;
 }
 
 /*Melissa Custom CSS*/

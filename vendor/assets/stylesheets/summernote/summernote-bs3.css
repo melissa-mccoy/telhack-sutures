@@ -271,7 +271,7 @@
   line-height: inherit;
 }
 .note-editor a {
-  color: #083C76;
+  color: #eed500;
   text-decoration: none;
 }
 .note-editor a:hover,
@@ -351,7 +351,7 @@
   color: #999999;
 }
 .note-editor .text-primary {
-  color: #083C76;
+  color: #eed500;
 }
 .note-editor .text-primary:hover {
   color: #3071a9;
@@ -1952,7 +1952,7 @@ fieldset[disabled] .note-editor .btn-default.active {
 }
 .note-editor .btn-primary {
   color: #ffffff;
-  background-color: #083C76;
+  background-color: #eed500;
   border-color: #357ebd;
 }
 .note-editor .btn-primary:hover,
@@ -1984,7 +1984,7 @@ fieldset[disabled] .note-editor .btn-primary:active,
 .note-editor .btn-primary.disabled.active,
 .note-editor .btn-primary[disabled].active,
 fieldset[disabled] .note-editor .btn-primary.active {
-  background-color: #083C76;
+  background-color: #eed500;
   border-color: #357ebd;
 }
 .note-editor .btn-warning {
@@ -2136,7 +2136,7 @@ fieldset[disabled] .note-editor .btn-info.active {
   border-color: #46b8da;
 }
 .note-editor .btn-link {
-  color: #083C76;
+  color: #eed500;
   font-weight: normal;
   cursor: pointer;
   border-radius: 0;
@@ -2905,7 +2905,7 @@ fieldset[disabled] .note-editor .btn-link:focus {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
-  background-color: #083C76;
+  background-color: #eed500;
 }
 .note-editor .dropdown-menu > .disabled > a,
 .note-editor .dropdown-menu > .disabled > a:hover,
@@ -3397,7 +3397,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 .note-editor .nav .open > a:hover,
 .note-editor .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #083C76;
+  border-color: #eed500;
 }
 .note-editor .nav .open > a .caret,
 .note-editor .nav .open > a:hover .caret,
@@ -3492,7 +3492,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 .note-editor .nav-pills > li.active > a:hover,
 .note-editor .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #083C76;
+  background-color: #eed500;
 }
 .note-editor .nav-pills > li.active > a .caret,
 .note-editor .nav-pills > li.active > a:hover .caret,
@@ -3556,8 +3556,8 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
   display: block;
 }
 .note-editor .nav .caret {
-  border-top-color: #083C76;
-  border-bottom-color: #083C76;
+  border-top-color: #eed500;
+  border-bottom-color: #eed500;
 }
 .note-editor .nav a:hover .caret {
   border-top-color: #2a6496;
@@ -4166,8 +4166,8 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 .note-editor .pagination > .active > span:focus {
   z-index: 2;
   color: #ffffff;
-  background-color: #083C76;
-  border-color: #083C76;
+  background-color: #eed500;
+  border-color: #eed500;
   cursor: default;
 }
 .note-editor .pagination > .disabled > span,
@@ -4302,7 +4302,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
   background-color: #808080;
 }
 .note-editor .label-primary {
-  background-color: #083C76;
+  background-color: #eed500;
 }
 .note-editor .label-primary[href]:hover,
 .note-editor .label-primary[href]:focus {
@@ -4365,7 +4365,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 }
 .note-editor a.list-group-item.active > .badge,
 .note-editor .nav-pills > .active > a > .badge {
-  color: #083C76;
+  color: #eed500;
   background-color: #ffffff;
 }
 .note-editor .nav-pills > li > a > .badge {
@@ -4425,7 +4425,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 .note-editor a.thumbnail:hover,
 .note-editor a.thumbnail:focus,
 .note-editor a.thumbnail.active {
-  border-color: #083C76;
+  border-color: #eed500;
 }
 .note-editor .thumbnail > img {
   margin-left: auto;
@@ -4557,7 +4557,7 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
   line-height: 20px;
   color: #ffffff;
   text-align: center;
-  background-color: #083C76;
+  background-color: #eed500;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -webkit-transition: width 0.6s ease;
@@ -4684,8 +4684,8 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
 .note-editor a.list-group-item.active:focus {
   z-index: 2;
   color: #ffffff;
-  background-color: #083C76;
-  border-color: #083C76;
+  background-color: #eed500;
+  border-color: #eed500;
 }
 .note-editor a.list-group-item.active .list-group-item-heading,
 .note-editor a.list-group-item.active:hover .list-group-item-heading,
@@ -4866,18 +4866,18 @@ textarea.note-editor .input-group-sm > .input-group-btn > .btn {
   border-bottom-color: #dddddd;
 }
 .note-editor .panel-primary {
-  border-color: #083C76;
+  border-color: #eed500;
 }
 .note-editor .panel-primary > .panel-heading {
   color: #ffffff;
-  background-color: #083C76;
-  border-color: #083C76;
+  background-color: #eed500;
+  border-color: #eed500;
 }
 .note-editor .panel-primary > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #083C76;
+  border-top-color: #eed500;
 }
 .note-editor .panel-primary > .panel-footer + .panel-collapse .panel-body {
-  border-bottom-color: #083C76;
+  border-bottom-color: #eed500;
 }
 .note-editor .panel-success {
   border-color: #d6e9c6;

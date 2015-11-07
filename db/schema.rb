@@ -16,26 +16,9 @@ ActiveRecord::Schema.define(version: 20150927221516) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "facts", force: true do |t|
-    t.text     "text"
-    t.integer  "student_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "games", force: true do |t|
     t.string   "name",       null: false
     t.integer  "score",      null: false
-    t.string   "game_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "students", force: true do |t|
-    t.string   "name",        null: false
-    t.string   "facebook_id"
-    t.string   "year"
-    t.string   "photo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

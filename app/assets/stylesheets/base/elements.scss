@@ -16,7 +16,7 @@
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid #083C76;
+  border: 2px solid #eed500;
   border-radius: 2px;
 }
 
@@ -47,7 +47,7 @@
 .onoffswitch-inner:before {
   content: "ON";
   padding-left: 10px;
-  background-color: #083C76;
+  background-color: #eed500;
   color: white;
 }
 
@@ -63,7 +63,7 @@
   width: 20px;
   margin: 0px;
   background: white;
-  border: 2px solid #083C76;
+  border: 2px solid #eed500;
   border-radius: 2px;
   position: absolute;
   top: 0;
@@ -224,8 +224,8 @@
 }
 
 .fc-state-active {
-  background-color: #083C76;
-  border-color: #083C76;
+  background-color: #eed500;
+  border-color: #eed500;
   color: white;
 }
 
@@ -263,8 +263,8 @@
 .fc-agenda .fc-event-time,
 .fc-event a {
   padding: 4px 6px;
-  background-color: #083C76;
-  border-color: #083C76;
+  background-color: #eed500;
+  border-color: #eed500;
 }
 
 .fc-event-time, .fc-event-title {
@@ -382,8 +382,8 @@
 /* LIST GROUP */
 
 a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
-  background-color: #083C76;
-  border-color: #083C76;
+  background-color: #eed500;
+  border-color: #eed500;
   color: white;
   z-index: 2;
 }
@@ -681,7 +681,7 @@ table.dataTable thead .sorting:after {
 }
 
 .pace .pace-progress {
-  background: #083C76;
+  background: #eed500;
   position: fixed;
   z-index: 2000;
   top: 0;
@@ -837,11 +837,11 @@ table.dataTable thead .sorting:after {
 }
 
 .form-control:focus, .single-line:focus {
-  border-color: #083C76 !important;
+  border-color: #eed500 !important;
 }
 
 .has-success .form-control {
-  border-color: #083C76;
+  border-color: #eed500;
 }
 
 .has-warning .form-control {
@@ -853,7 +853,7 @@ table.dataTable thead .sorting:after {
 }
 
 .has-success .control-label {
-  color: #083C76;
+  color: #eed500;
 }
 
 .has-warning .control-label {
@@ -885,7 +885,7 @@ table.dataTable thead .sorting:after {
 }
 
 .noUi-connect {
-  background: none repeat scroll 0 0 #083C76;
+  background: none repeat scroll 0 0 #eed500;
   box-shadow: none;
 }
 
@@ -927,7 +927,7 @@ table.dataTable thead .sorting:after {
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid #083C76;
+  border: 2px solid #eed500;
   border-radius: 3px;
 }
 
@@ -960,7 +960,7 @@ table.dataTable thead .sorting:after {
 .onoffswitch-inner:before {
   content: "ON";
   padding-left: 7px;
-  background-color: #083C76;
+  background-color: #eed500;
   color: white;
 }
 
@@ -977,7 +977,7 @@ table.dataTable thead .sorting:after {
   width: 18px;
   margin: 0px;
   background: white;
-  border: 2px solid #083C76;
+  border: 2px solid #eed500;
   border-radius: 3px;
   position: absolute;
   top: 0;
@@ -1517,11 +1517,11 @@ label.error {
 }
 
 .toast {
-  background-color: #083C76
+  background-color: #eed500
 }
 
 .toast-success {
-  background-color: #083C76
+  background-color: #eed500
 }
 
 .toast-error {
@@ -1568,7 +1568,7 @@ label.error {
 }
 
 .inspinia-notify.alert-info {
-  border-left: 6px solid #083C76;
+  border-left: 6px solid #eed500;
 }
 
 /* Image cropper style */
@@ -1705,11 +1705,11 @@ a.forum-item-title:hover {
   color: #9b9b9b;
 }
 .forum-item.active .fa {
-  color: #083C76;
+  color: #eed500;
 }
 
 .forum-item.active a.forum-item-title {
-  color: #083C76;
+  color: #eed500;
 }
 
 @media (max-width: 992px) {
@@ -1906,7 +1906,7 @@ a.forum-item-title:hover {
 }
 
 .vertical-date small {
-  color: #083C76;
+  color: #eed500;
   font-weight: 400;
 }
 
@@ -2160,7 +2160,7 @@ a.forum-item-title:hover {
   position: absolute;
   left: 10px;
   border-radius: 3px;
-  background: #083C76;
+  background: #eed500;
   padding: 3px;
   color: white;
   cursor: pointer;

@@ -177,11 +177,11 @@
 }
 
 .ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {
-    stroke: #083C76;
+    stroke: #eed500;
 }
 
 .ct-series-a .ct-slice-pie, .ct-series-a .ct-area {
-    fill: #083C76;
+    fill: #eed500;
 }
 
 .ct-series-b .ct-point, .ct-series-b .ct-line, .ct-series-b .ct-bar, .ct-series-b .ct-slice-donut {
