@@ -1,0 +1,31 @@
+<div class="wrapper wrapper-content">
+    <div class="row animated fadeInLeft">
+        <div class="col-lg-6 text-center">
+            <div class="ibox">
+              <div class="ibox-title">
+                <h1><strong>Can You Name Scholars in Oxford?</strong></h1>
+              </div>
+              <div class="ibox-content" style="height:425px">
+                  <%= image_tag "rhodes_hall_circle.png", width: "30%", style:"margin:20px 0;"%>
+                    <h3 style="margin:10px">Choose scholars based on photos.</h3>
+                    <button class="btn btn-primary dim" style="margin:10px"><%= link_to 'First Years', new_first_game_path, style:"color:#fff" %></button>
+                    <button class="btn btn-primary dim" style="margin:10px"><%= link_to 'Second Years', new_second_game_path, style:"color:#fff" %></button>
+                    <button class="btn btn-primary dim" style="margin:10px"><%= link_to 'Third+ Years', new_third_game_path, style:"color:#fff" %></button>
+                    <button class="btn btn-primary dim" style="margin:10px"><%= link_to 'All Scholars in Oxford', new_game_path, style:"color:#fff" %></button>
+              </div>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center">
+            <div class="ibox">
+              <div class="ibox-title">
+                <h1><strong>Do You Know Scholars in Oxford?</strong></h1>
+              </div>
+              <div class="ibox-content" style="height:425px">
+                  <%= image_tag "rhodes_lecture_circle.png", width: "30%", style:"margin:20px 0;" %>
+                  <h3 style="margin:10px"><br>Choose classmates based on personal facts from Facebook.<br>Can also submit facts about each other.</h3>
+                  <h3 style="font-size:18px;"><br>Coming Soon</h3>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

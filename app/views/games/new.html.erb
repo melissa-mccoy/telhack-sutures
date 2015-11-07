@@ -1,0 +1,184 @@
+<div class="wrapper wrapper-content">
+<div class="row animated fadeInLeft">
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <div class="ibox-title">
+      <div class="row">
+        <div class="col-sm-4 text-left">
+          <h3 class="btn dim"><strong>Your Score: <span id="score">0</span></strong></h3>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4 text-right">
+          <button id="submitScore" class="btn" data-toggle="modal" data-target="#submitModal" style="margin-bottom:0"><h3 style="margin-bottom:5px;"><i class="fa fa-check-square"></i> Submit Score</h3></button>
+        </div>
+      </div>
+      <h1><strong>Who is pictured below?</strong></h1>
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <img id="photo" class="img-responsive img-center" style="max-height:200px;margin-top:15px;margin-bottom:25px;" />
+        </div>
+      </div>
+      <div class="row">
+        <button id="0" class="btn btn-primary block m-b ans inline dim"></button>
+        <button id="1" class="btn btn-primary block m-b ans inline dim"></button>
+        <button id="2" class="btn btn-primary block m-b ans inline dim"></button>
+        <button id="3" class="btn btn-primary block m-b ans inline dim"></button>
+      </div>
+      <div class="row animated fadeInLeft">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div id="responseMessage"></div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-sm-12">
+          <button class="btn" id="next" style="display:none;margin-bottom:10px;"> Next <i class="fa fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="row text-right">
+      </div>
+    </div>
+    <div class="modal inmodal" id="submitModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content animated fadeIn">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cancel</span></button>
+                  <i class="fa fa-trophy modal-icon"></i>
+                  <h4 class="modal-title">Submit Score</h4>
+              </div>
+              <div class="modal-body" style="max-height: 350px; overflow-y: auto;">
+                  <%= render 'submit_game' %>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+
+  //Add Shuffle Function to Array class
+  Array.prototype.shuffle = function() {
+    var input = this;
+    for (var i = input.length-1; i >=0; i--) {
+        var randomIndex = Math.floor(Math.random()*(i+1));
+        var itemAtIndex = input[randomIndex];
+        input[randomIndex] = input[i];
+        input[i] = itemAtIndex;
+    }
+    return input;
+  }
+
+  //Student Model
+  Student = function(name,facebookID,photoURL) {
+    this.name = name;
+    this.facebookID = facebookID;
+    this.photoURL = photoURL;
+    this.chosen = false;
+  }
+
+  //Game Model
+  Game = function() {
+    this.allStudents = []
+    this.remainingStudents = [];
+    this.photoURL = "";
+    this.score = 0;
+  }
+
+  Game.prototype = {
+    start: function() {
+      //Seed all students
+      $.ajax({
+        method: "GET",
+        url: "/students",
+        dataType: "json"
+      }).done(function(studentsJsonArray) {
+          console.log("Response successful")
+          console.log(studentsJsonArray)
+          this.createStudents(studentsJsonArray);
+          this.renderQuestion();
+      }.bind(this));
+      //Listener & actions on Next Button
+      $("#next").click(function(e){
+        $("#responseMessage").html("")
+        this.renderQuestion();
+        $("#next").hide();
+      }.bind(this));
+      //Listener & actions on End & Save Button
+      $("#submitScore").click(function(e){
+        $("#submittedScore").html(this.score)
+      }.bind(this));
+      //Listener on Submit Score Form
+      $('form').submit(function() {
+        console.log(this.score)
+        $("#game_score").val(this.score);
+        return true;
+      }.bind(this));
+    },
+    createStudents: function(studentsJsonArray) {
+      for(var i=1;i<studentsJsonArray.length;i++) {
+      this.allStudents.push(new Student(studentsJsonArray[i].name,studentsJsonArray[i].facebook_id,studentsJsonArray[i].photo_url));
+     }
+     console.log(this.allStudents)
+     this.remainingStudents = this.allStudents;
+    },
+    getStudentChoices: function(count) {
+      var studentChoices =[];
+      var studentIndexes =[];
+      //Get Chosen Student
+      var chosenStudentIndex = Math.floor(Math.random()*this.remainingStudents.length);
+      var chosenStudent = this.remainingStudents[chosenStudentIndex];
+      chosenStudent.chosen = true;
+      this.remainingStudents.splice(chosenStudentIndex, 1);
+      studentChoices.push(chosenStudent);
+      studentIndexes.push(chosenStudentIndex);
+      //Get Other Students
+      var totalStudentsCount = this.allStudents.length;
+      while(studentIndexes.length < count){
+        var index=Math.floor(Math.random()*totalStudentsCount);
+        var alreadyChosen=false;
+        for(var i=0;i<studentIndexes.length;i++) {
+          if(studentIndexes[i]==index){alreadyChosen=true;break}
+        }
+        if(!alreadyChosen) {
+          studentIndexes.push(index);
+          studentChoices.push(this.allStudents[index]);
+        }
+      }
+      return studentChoices;
+    },
+    renderQuestion: function() {
+      var studentChoices = this.getStudentChoices(4);
+      var chosenStudent = studentChoices[0];
+      studentChoices.shuffle();
+      $('#0').html(studentChoices[0].name);
+      $('#1').html(studentChoices[1].name);
+      $('#2').html(studentChoices[2].name);
+      $('#3').html(studentChoices[3].name);
+      $('#photo').attr("src","/assets/photos/"+chosenStudent.photoURL);
+
+      //Add Listeners to Answer Choices & specify if correct/incorrect when clicked
+      $(".ans").click(function(e){
+        var clickedId = e.target.id;
+        if(studentChoices[Number(clickedId)].chosen == true) {
+          $("#responseMessage").html('<div class="alert alert-success alert-dismissable" style="margin-bottom:10px;">Correct.</div>');
+          this.score = this.score+1;
+          console.log(this.score);
+          $("#score").html(this.score);
+          $("#next").show();
+        } else {
+          $("#responseMessage").html('<div id="incorrect" class="alert alert-danger alert-dismissable" style="margin-bottom:10px;">Incorrect. The correct answer is '+chosenStudent.name+'</div>');
+          $("#next").show();
+        }
+        $(".ans").unbind("click");
+      }.bind(this));
+    }
+  }
+
+  // Start Game (Refactor ToDos: (1) divide functions into Game Controller & Game Model. (2) move code into asset pipeline)
+  var game = new Game()
+  game.start()
+
+});
+</script>

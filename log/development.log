@@ -1,0 +1,1121 @@
+  [1m[36m (26.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (3.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateStudents (20150925224909)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (26.4ms)[0m  [1mCREATE TABLE "students" ("id" serial primary key, "name" character varying(255) NOT NULL, "facebook_id" character varying(255), "year" character varying(255), "photo_url" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150925224909"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateFacts (20150925225329)
+  [1m[35m (5.9ms)[0m  BEGIN
+  [1m[36m (14.6ms)[0m  [1mCREATE TABLE "facts" ("id" serial primary key, "text" text, "student_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (5.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150925225329"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateGames (20150927221516)
+  [1m[35m (5.9ms)[0m  BEGIN
+  [1m[36m (14.0ms)[0m  [1mCREATE TABLE "games" ("id" serial primary key, "name" character varying(255) NOT NULL, "score" integer NOT NULL, "game_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150927221516"]]
+  [1m[36m (4.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (13.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.057022"], ["name", "name"], ["photo_url", "photo_url"], ["updated_at", "2015-10-04 04:15:18.057022"], ["year", "year"]]
+  [1m[35m (4.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.088542"], ["name", "Emily Burke"], ["photo_url", "emily_burke.png"], ["updated_at", "2015-10-04 04:15:18.088542"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.090724"], ["name", "Rebecca Byrnes"], ["photo_url", "rebecca_byrnes.png"], ["updated_at", "2015-10-04 04:15:18.090724"], ["year", "1"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.092418"], ["name", "Alex Eastwood"], ["photo_url", "alex_eastwood.png"], ["updated_at", "2015-10-04 04:15:18.092418"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.093766"], ["name", "Brody Foy"], ["photo_url", "brody_foy.png"], ["updated_at", "2015-10-04 04:15:18.093766"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.095029"], ["name", "Kelli Francis-Staite"], ["photo_url", "kelli_francis-staite.png"], ["updated_at", "2015-10-04 04:15:18.095029"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.096294"], ["name", "Sean Lau"], ["photo_url", "sean_lau.png"], ["updated_at", "2015-10-04 04:15:18.096294"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.097547"], ["name", "Hamish McKenzie"], ["photo_url", "hamish_mckenzie.png"], ["updated_at", "2015-10-04 04:15:18.097547"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.098786"], ["name", "Amy Steinepreis"], ["photo_url", "amy_steinepreis.png"], ["updated_at", "2015-10-04 04:15:18.098786"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.100017"], ["name", "Andrew Wheeler"], ["photo_url", "andrew_wheeler.png"], ["updated_at", "2015-10-04 04:15:18.100017"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.101323"], ["name", "Rowan Border"], ["photo_url", "rowan_border.png"], ["updated_at", "2015-10-04 04:15:18.101323"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.102599"], ["name", "Norbert Nthala"], ["photo_url", "norbert_nthala.png"], ["updated_at", "2015-10-04 04:15:18.102599"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.103817"], ["name", "Moustafa Adballa"], ["photo_url", "moustafa_adballa.png"], ["updated_at", "2015-10-04 04:15:18.103817"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.105001"], ["name", "Logan Graham"], ["photo_url", "logan_graham.png"], ["updated_at", "2015-10-04 04:15:18.105001"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.106247"], ["name", "Brittany Graham"], ["photo_url", "brittany_graham.png"], ["updated_at", "2015-10-04 04:15:18.106247"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.107524"], ["name", "Devin Grant"], ["photo_url", "devin_grant.png"], ["updated_at", "2015-10-04 04:15:18.107524"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.108823"], ["name", "Joanna Klimczak"], ["photo_url", "joanna_klimczak.png"], ["updated_at", "2015-10-04 04:15:18.108823"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.110148"], ["name", "Bogdan Knezevic"], ["photo_url", "bogdan_knezevic.png"], ["updated_at", "2015-10-04 04:15:18.110148"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.111426"], ["name", "Caroline Leps"], ["photo_url", "caroline_leps.png"], ["updated_at", "2015-10-04 04:15:18.111426"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.112778"], ["name", "Benjamin Mappin-Kasirer"], ["photo_url", "benjamin_mappin-kasirer.png"], ["updated_at", "2015-10-04 04:15:18.112778"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.114007"], ["name", "Bernard Soubry"], ["photo_url", "bernard_soubry.png"], ["updated_at", "2015-10-04 04:15:18.114007"], ["year", "1"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.115430"], ["name", "Colin Walmsley"], ["photo_url", "colin_walmsley.png"], ["updated_at", "2015-10-04 04:15:18.115430"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.116901"], ["name", "Alexa Yakubovich"], ["photo_url", "alexa_yakubovich.png"], ["updated_at", "2015-10-04 04:15:18.116901"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.118116"], ["name", "Lukas Lange"], ["photo_url", "lukas_lange.png"], ["updated_at", "2015-10-04 04:15:18.118116"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.119315"], ["name", "Friederike Reuter"], ["photo_url", "friederike_reuter.png"], ["updated_at", "2015-10-04 04:15:18.119315"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.120449"], ["name", "Geoffrey Yeung"], ["photo_url", "geoffrey_yeung.png"], ["updated_at", "2015-10-04 04:15:18.120449"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.121741"], ["name", "Carl Britto"], ["photo_url", "carl_britto.png"], ["updated_at", "2015-10-04 04:15:18.121741"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.123096"], ["name", "Sonali Chowdhry"], ["photo_url", "sonali_chowdhry.png"], ["updated_at", "2015-10-04 04:15:18.123096"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.124362"], ["name", "Mayanka Mukherji"], ["photo_url", "mayanka_mukherji.png"], ["updated_at", "2015-10-04 04:15:18.124362"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.125567"], ["name", "Sanya Samtani"], ["photo_url", "sanya_samtani.png"], ["updated_at", "2015-10-04 04:15:18.125567"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.126751"], ["name", "Mansi Sood"], ["photo_url", "mansi_sood.png"], ["updated_at", "2015-10-04 04:15:18.126751"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.127990"], ["name", "Cherrelle Dacon"], ["photo_url", "cherrelle_dacon.png"], ["updated_at", "2015-10-04 04:15:18.127990"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.129243"], ["name", "Tariq Parker"], ["photo_url", "tariq_parker.png"], ["updated_at", "2015-10-04 04:15:18.129243"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.130442"], ["name", "Miriam Kilimo"], ["photo_url", "miriam_kilimo.png"], ["updated_at", "2015-10-04 04:15:18.130442"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.131689"], ["name", "Gladys Ngetich"], ["photo_url", "gladys_ngetich.png"], ["updated_at", "2015-10-04 04:15:18.131689"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.132962"], ["name", "Joshua Wabwire"], ["photo_url", "joshua_wabwire.png"], ["updated_at", "2015-10-04 04:15:18.132962"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.134140"], ["name", "Hadleigh Frost"], ["photo_url", "hadleigh_frost.png"], ["updated_at", "2015-10-04 04:15:18.134140"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.135363"], ["name", "Jessica Glennie"], ["photo_url", "jessica_glennie.png"], ["updated_at", "2015-10-04 04:15:18.135363"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.136551"], ["name", "Finn Lowery"], ["photo_url", "finn_lowery.png"], ["updated_at", "2015-10-04 04:15:18.136551"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.137775"], ["name", "Tanyah Hameed"], ["photo_url", "tanyah_hameed.png"], ["updated_at", "2015-10-04 04:15:18.137775"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.139051"], ["name", "Raphael Chaskalson"], ["photo_url", "raphael_chaskalson.png"], ["updated_at", "2015-10-04 04:15:18.139051"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.140268"], ["name", "Lise du Buisson"], ["photo_url", "lise_du_buisson.png"], ["updated_at", "2015-10-04 04:15:18.140268"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.141493"], ["name", "Nhlakanipho Mkhize"], ["photo_url", "nhlakanipho_mkhize.png"], ["updated_at", "2015-10-04 04:15:18.141493"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.142673"], ["name", "Ashley Pople"], ["photo_url", "ashley_pople.png"], ["updated_at", "2015-10-04 04:15:18.142673"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.143731"], ["name", "Alex von Klemperer"], ["photo_url", "alex_von_klemperer.png"], ["updated_at", "2015-10-04 04:15:18.143731"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.144787"], ["name", "Sarah Westwood"], ["photo_url", "sarah_westwood.png"], ["updated_at", "2015-10-04 04:15:18.144787"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.145849"], ["name", "Nomfundo Ramalekana"], ["photo_url", "nomfundo_ramalekana.png"], ["updated_at", "2015-10-04 04:15:18.145849"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.146906"], ["name", "Hamel Al Qubuaisi"], ["photo_url", "hamel_al_qubuaisi.png"], ["updated_at", "2015-10-04 04:15:18.146906"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.147924"], ["name", "Arfa Rehman"], ["photo_url", "arfa_rehman.png"], ["updated_at", "2015-10-04 04:15:18.147924"], ["year", "1"]]
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.148907"], ["name", "David Adler"], ["photo_url", "david_adler.png"], ["updated_at", "2015-10-04 04:15:18.148907"], ["year", "1"]]
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.149876"], ["name", "Elliot Akama-Garren"], ["photo_url", "elliot_akama-garren.png"], ["updated_at", "2015-10-04 04:15:18.149876"], ["year", "1"]]
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.150835"], ["name", "Noam Angrist"], ["photo_url", "noam_angrist.png"], ["updated_at", "2015-10-04 04:15:18.150835"], ["year", "1"]]
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.151793"], ["name", "Ameen Barghi"], ["photo_url", "ameen_barghi.png"], ["updated_at", "2015-10-04 04:15:18.151793"], ["year", "1"]]
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.152793"], ["name", "Joseph Barrett"], ["photo_url", "joseph_barrett.png"], ["updated_at", "2015-10-04 04:15:18.152793"], ["year", "1"]]
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.153834"], ["name", "Sarah Bufkin"], ["photo_url", "sarah_bufkin.png"], ["updated_at", "2015-10-04 04:15:18.153834"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.154855"], ["name", "Jacob Burnett"], ["photo_url", "jacob_burnett.png"], ["updated_at", "2015-10-04 04:15:18.154855"], ["year", "1"]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.161555"], ["name", "Fang Cao"], ["photo_url", "fang_cao.png"], ["updated_at", "2015-10-04 04:15:18.161555"], ["year", "1"]]
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.168645"], ["name", "Alex Coccia"], ["photo_url", "alex_coccia.png"], ["updated_at", "2015-10-04 04:15:18.168645"], ["year", "1"]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.175700"], ["name", "Rebecca Esselstein"], ["photo_url", "rebecca_esselstein.png"], ["updated_at", "2015-10-04 04:15:18.175700"], ["year", "1"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.182871"], ["name", "Robert Fisher"], ["photo_url", "robert_fisher.png"], ["updated_at", "2015-10-04 04:15:18.182871"], ["year", "1"]]
+  [1m[36m (5.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.189825"], ["name", "Ruth Fong"], ["photo_url", "ruth_fong.png"], ["updated_at", "2015-10-04 04:15:18.189825"], ["year", "1"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.197024"], ["name", "Sai Gourisankar"], ["photo_url", "sai_gourisankar.png"], ["updated_at", "2015-10-04 04:15:18.197024"], ["year", "1"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.204883"], ["name", "Anisha Gururaj"], ["photo_url", "anisha_gururaj.png"], ["updated_at", "2015-10-04 04:15:18.204883"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.206907"], ["name", "Rachel Harmon"], ["photo_url", "rachel_harmon.png"], ["updated_at", "2015-10-04 04:15:18.206907"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.208712"], ["name", "Ridwan Hassen"], ["photo_url", "ridwan_hassen.png"], ["updated_at", "2015-10-04 04:15:18.208712"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.210378"], ["name", "Peter Kalugin"], ["photo_url", "peter_kalugin.png"], ["updated_at", "2015-10-04 04:15:18.210378"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.212039"], ["name", "Jordan Konell"], ["photo_url", "jordan_konell.png"], ["updated_at", "2015-10-04 04:15:18.212039"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.213721"], ["name", "Maya Krishnan"], ["photo_url", "maya_krishnan.png"], ["updated_at", "2015-10-04 04:15:18.213721"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.215236"], ["name", "Abi Kulshreshtha"], ["photo_url", "abi_kulshreshtha.png"], ["updated_at", "2015-10-04 04:15:18.215236"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.216757"], ["name", "Jane Darby Menton"], ["photo_url", "jane_darby_menton.png"], ["updated_at", "2015-10-04 04:15:18.216757"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.218541"], ["name", "David Moore"], ["photo_url", "david_moore.png"], ["updated_at", "2015-10-04 04:15:18.218541"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.219872"], ["name", "Kate Nussenbaum"], ["photo_url", "kate_nussenbaum.png"], ["updated_at", "2015-10-04 04:15:18.219872"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.221153"], ["name", "William Rathje"], ["photo_url", "william_rathje.png"], ["updated_at", "2015-10-04 04:15:18.221153"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.222448"], ["name", "Tayo Sanders"], ["photo_url", "tayo_sanders.png"], ["updated_at", "2015-10-04 04:15:18.222448"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.224377"], ["name", "Aven Satre-Meloy"], ["photo_url", "aven_satre-meloy.png"], ["updated_at", "2015-10-04 04:15:18.224377"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.226254"], ["name", "Rachel Skokowski"], ["photo_url", "rachel_skokowski.png"], ["updated_at", "2015-10-04 04:15:18.226254"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.228328"], ["name", "Benjamin Sprung-Keyser"], ["photo_url", "benjamin_sprung-keyser.png"], ["updated_at", "2015-10-04 04:15:18.228328"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.230283"], ["name", "Matt Townsend"], ["photo_url", "matt_townsend.png"], ["updated_at", "2015-10-04 04:15:18.230283"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.232592"], ["name", "Emily Witt"], ["photo_url", "emily_witt.png"], ["updated_at", "2015-10-04 04:15:18.232592"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.234115"], ["name", "Sarah Yerima"], ["photo_url", "sarah_yerima.png"], ["updated_at", "2015-10-04 04:15:18.234115"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.235286"], ["name", "Gabriel Zucker"], ["photo_url", "gabriel_zucker.png"], ["updated_at", "2015-10-04 04:15:18.235286"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.236586"], ["name", "Kabeleka Kabeleka"], ["photo_url", "kabeleka_kabeleka.png"], ["updated_at", "2015-10-04 04:15:18.236586"], ["year", "1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.237833"], ["name", "Karen Mumba"], ["photo_url", "karen_mumba.png"], ["updated_at", "2015-10-04 04:15:18.237833"], ["year", "1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.239052"], ["name", "Rutendo Chigora"], ["photo_url", "rutendo_chigora.png"], ["updated_at", "2015-10-04 04:15:18.239052"], ["year", "1"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.240219"], ["name", "Chris Sharwood"], ["photo_url", "chris_sharwood.png"], ["updated_at", "2015-10-04 04:15:18.240219"], ["year", "1"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.241424"], ["name", "Andrew Barnes"], ["photo_url", "andrew_barnes.png"], ["updated_at", "2015-10-04 04:15:18.241424"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.242626"], ["name", "Helen Baxendale"], ["photo_url", "helen_baxendale.png"], ["updated_at", "2015-10-04 04:15:18.242626"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.243738"], ["name", "Alyssa Fitzpatrick"], ["photo_url", "alyssa_fitzpatrick.png"], ["updated_at", "2015-10-04 04:15:18.243738"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.244982"], ["name", "Sam Forbes"], ["photo_url", "sam_forbes.png"], ["updated_at", "2015-10-04 04:15:18.244982"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.246138"], ["name", "Mark Hassall"], ["photo_url", "mark_hassall.png"], ["updated_at", "2015-10-04 04:15:18.246138"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.247699"], ["name", "Rob Hortle"], ["photo_url", "rob_hortle.png"], ["updated_at", "2015-10-04 04:15:18.247699"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.249387"], ["name", "Kristijan Jovanoski"], ["photo_url", "kristijan_jovanoski.png"], ["updated_at", "2015-10-04 04:15:18.249387"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.250657"], ["name", "Katharine Noonan"], ["photo_url", "katharine_noonan.png"], ["updated_at", "2015-10-04 04:15:18.250657"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.252187"], ["name", "Kunal Sharma"], ["photo_url", "kunal_sharma.png"], ["updated_at", "2015-10-04 04:15:18.252187"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.253379"], ["name", "Freya Shearer"], ["photo_url", "freya_shearer.png"], ["updated_at", "2015-10-04 04:15:18.253379"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.254909"], ["name", "Jenny Tran"], ["photo_url", "jenny_tran.png"], ["updated_at", "2015-10-04 04:15:18.254909"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.256246"], ["name", "Mahesh Umapathysivam"], ["photo_url", "mahesh_umapathysivam.png"], ["updated_at", "2015-10-04 04:15:18.256246"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.257483"], ["name", "Thom Woodroofe"], ["photo_url", "thom_woodroofe.png"], ["updated_at", "2015-10-04 04:15:18.257483"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.258714"], ["name", "Aliyyah Ahad"], ["photo_url", "aliyyah_ahad.png"], ["updated_at", "2015-10-04 04:15:18.258714"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.259918"], ["name", "Ndjodi Ndeunyema"], ["photo_url", "ndjodi_ndeunyema.png"], ["updated_at", "2015-10-04 04:15:18.259918"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.261164"], ["name", "Simon-Pierre Chevarie-Cossette"], ["photo_url", "simon-pierre_chevarie-cossette.png"], ["updated_at", "2015-10-04 04:15:18.261164"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.262397"], ["name", "Dylan Collins"], ["photo_url", "dylan_collins.png"], ["updated_at", "2015-10-04 04:15:18.262397"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.263601"], ["name", "Kylie de Chastelain"], ["photo_url", "kylie_de_chastelain.png"], ["updated_at", "2015-10-04 04:15:18.263601"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.264856"], ["name", "Aravind Ganesh"], ["photo_url", "aravind_ganesh.png"], ["updated_at", "2015-10-04 04:15:18.264856"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.266086"], ["name", "Saumya Krishna"], ["photo_url", "saumya_krishna.png"], ["updated_at", "2015-10-04 04:15:18.266086"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.267317"], ["name", "Michael Mackley"], ["photo_url", "michael_mackley.png"], ["updated_at", "2015-10-04 04:15:18.267317"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.268670"], ["name", "Suzy Newing"], ["photo_url", "suzy_newing.png"], ["updated_at", "2015-10-04 04:15:18.268670"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.269899"], ["name", "Anthony Payne"], ["photo_url", "anthony_payne.png"], ["updated_at", "2015-10-04 04:15:18.269899"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.271149"], ["name", "Jonathan Pedde"], ["photo_url", "jonathan_pedde.png"], ["updated_at", "2015-10-04 04:15:18.271149"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.272392"], ["name", "Joseph Singh"], ["photo_url", "joseph_singh.png"], ["updated_at", "2015-10-04 04:15:18.272392"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.273623"], ["name", "Yan Yu"], ["photo_url", "yan_yu.png"], ["updated_at", "2015-10-04 04:15:18.273623"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.274864"], ["name", "Martin-Immanuel Bittner"], ["photo_url", "martin-immanuel_bittner.png"], ["updated_at", "2015-10-04 04:15:18.274864"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.276043"], ["name", "Tobias Lutzi"], ["photo_url", "tobias_lutzi.png"], ["updated_at", "2015-10-04 04:15:18.276043"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.277246"], ["name", "Subhashish Bhadra"], ["photo_url", "subhashish_bhadra.png"], ["updated_at", "2015-10-04 04:15:18.277246"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.278442"], ["name", "Amba Kak"], ["photo_url", "amba_kak.png"], ["updated_at", "2015-10-04 04:15:18.278442"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.279704"], ["name", "Ashwin Menon"], ["photo_url", "ashwin_menon.png"], ["updated_at", "2015-10-04 04:15:18.279704"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.280923"], ["name", "Nikhil Pandhi"], ["photo_url", "nikhil_pandhi.png"], ["updated_at", "2015-10-04 04:15:18.280923"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.282124"], ["name", "Raag Yadava"], ["photo_url", "raag_yadava.png"], ["updated_at", "2015-10-04 04:15:18.282124"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.283360"], ["name", "Timar Jackson"], ["photo_url", "timar_jackson.png"], ["updated_at", "2015-10-04 04:15:18.283360"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.284641"], ["name", "Chloe Walker"], ["photo_url", "chloe_walker.png"], ["updated_at", "2015-10-04 04:15:18.284641"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.285865"], ["name", "Paul Amayo"], ["photo_url", "paul_amayo.png"], ["updated_at", "2015-10-04 04:15:18.285865"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.287042"], ["name", "Ben Abraham"], ["photo_url", "ben_abraham.png"], ["updated_at", "2015-10-04 04:15:18.287042"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.288287"], ["name", "Ed Stace"], ["photo_url", "ed_stace.png"], ["updated_at", "2015-10-04 04:15:18.288287"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.289467"], ["name", "Hamish Tomlinson"], ["photo_url", "hamish_tomlinson.png"], ["updated_at", "2015-10-04 04:15:18.289467"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.290699"], ["name", "Alice Wang"], ["photo_url", "alice_wang.png"], ["updated_at", "2015-10-04 04:15:18.290699"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.291976"], ["name", "Timothy Abel"], ["photo_url", "timothy_abel.png"], ["updated_at", "2015-10-04 04:15:18.291976"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.293139"], ["name", "Seham Areff"], ["photo_url", "seham_areff.png"], ["updated_at", "2015-10-04 04:15:18.293139"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.294377"], ["name", "Matthew Davey"], ["photo_url", "matthew_davey.png"], ["updated_at", "2015-10-04 04:15:18.294377"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.295609"], ["name", "Nicholas Dowdall"], ["photo_url", "nicholas_dowdall.png"], ["updated_at", "2015-10-04 04:15:18.295609"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.296750"], ["name", "Heerden Herman"], ["photo_url", "heerden_herman.png"], ["updated_at", "2015-10-04 04:15:18.296750"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.297870"], ["name", "Simon Mendelsohn"], ["photo_url", "simon_mendelsohn.png"], ["updated_at", "2015-10-04 04:15:18.297870"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.299120"], ["name", "Vuyane Mhlomi"], ["photo_url", "vuyane_mhlomi.png"], ["updated_at", "2015-10-04 04:15:18.299120"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.300347"], ["name", "Ntokozo Qwabe"], ["photo_url", "ntokozo_qwabe.png"], ["updated_at", "2015-10-04 04:15:18.300347"], ["year", "2"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.301418"], ["name", "Dylan Smith"], ["photo_url", "dylan_smith.png"], ["updated_at", "2015-10-04 04:15:18.301418"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.302544"], ["name", "Charlotte Wang"], ["photo_url", "charlotte_wang.png"], ["updated_at", "2015-10-04 04:15:18.302544"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.303664"], ["name", "Joshua Aiken"], ["photo_url", "joshua_aiken.png"], ["updated_at", "2015-10-04 04:15:18.303664"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.304795"], ["name", "Evan Behrle"], ["photo_url", "evan_behrle.png"], ["updated_at", "2015-10-04 04:15:18.304795"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.305930"], ["name", "Isabel Beshar"], ["photo_url", "isabel_beshar.png"], ["updated_at", "2015-10-04 04:15:18.305930"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.307040"], ["name", "Drew Birrenkott"], ["photo_url", "drew_birrenkott.png"], ["updated_at", "2015-10-04 04:15:18.307040"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.308271"], ["name", "Field Brown"], ["photo_url", "field_brown.png"], ["updated_at", "2015-10-04 04:15:18.308271"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.309533"], ["name", "Elizabeth Byrne"], ["photo_url", "elizabeth_byrne.png"], ["updated_at", "2015-10-04 04:15:18.309533"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.310881"], ["name", "Alex Diaz"], ["photo_url", "alex_diaz.png"], ["updated_at", "2015-10-04 04:15:18.310881"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.312139"], ["name", "Suzanna Fitzberg"], ["photo_url", "suzanna_fitzberg.png"], ["updated_at", "2015-10-04 04:15:18.312139"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.313648"], ["name", "Calla Glavin"], ["photo_url", "calla_glavin.png"], ["updated_at", "2015-10-04 04:15:18.313648"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.314929"], ["name", "Samuel Greene"], ["photo_url", "samuel_greene.png"], ["updated_at", "2015-10-04 04:15:18.314929"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.316329"], ["name", "Aurora Griffin"], ["photo_url", "aurora_griffin.png"], ["updated_at", "2015-10-04 04:15:18.316329"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.317928"], ["name", "Clarke Knight"], ["photo_url", "clarke_knight.png"], ["updated_at", "2015-10-04 04:15:18.317928"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.319476"], ["name", "Andrew Lea"], ["photo_url", "andrew_lea.png"], ["updated_at", "2015-10-04 04:15:18.319476"], ["year", "2"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.321121"], ["name", "Lindsay Lee"], ["photo_url", "lindsay_lee.png"], ["updated_at", "2015-10-04 04:15:18.321121"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.322776"], ["name", "Adam Mastroianni"], ["photo_url", "adam_mastroianni.png"], ["updated_at", "2015-10-04 04:15:18.322776"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.324095"], ["name", "Erin Mauldin"], ["photo_url", "erin_mauldin.png"], ["updated_at", "2015-10-04 04:15:18.324095"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.325449"], ["name", "Melissa McCoy"], ["photo_url", "melissa_mccoy.png"], ["updated_at", "2015-10-04 04:15:18.325449"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.327003"], ["name", "Tim McGinnis"], ["photo_url", "tim_mcginnis.png"], ["updated_at", "2015-10-04 04:15:18.327003"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.328626"], ["name", "Brian McGrail"], ["photo_url", "brian_mcgrail.png"], ["updated_at", "2015-10-04 04:15:18.328626"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.329847"], ["name", "Vinay Nayak"], ["photo_url", "vinay_nayak.png"], ["updated_at", "2015-10-04 04:15:18.329847"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.331011"], ["name", "Jim O'Connell"], ["photo_url", "jim_o'connell.png"], ["updated_at", "2015-10-04 04:15:18.331011"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.332178"], ["name", "Zarko Perovic"], ["photo_url", "zarko_perovic.png"], ["updated_at", "2015-10-04 04:15:18.332178"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.333304"], ["name", "Daniel Price"], ["photo_url", "daniel_price.png"], ["updated_at", "2015-10-04 04:15:18.333304"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.334456"], ["name", "Paolo Singer"], ["photo_url", "paolo_singer.png"], ["updated_at", "2015-10-04 04:15:18.334456"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.335630"], ["name", "Charlie Tyson"], ["photo_url", "charlie_tyson.png"], ["updated_at", "2015-10-04 04:15:18.335630"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.336855"], ["name", "Miles Unterreiner"], ["photo_url", "miles_unterreiner.png"], ["updated_at", "2015-10-04 04:15:18.336855"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.337985"], ["name", "Jessica Wamala"], ["photo_url", "jessica_wamala.png"], ["updated_at", "2015-10-04 04:15:18.337985"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.339115"], ["name", "Alex Wang"], ["photo_url", "alex_wang.png"], ["updated_at", "2015-10-04 04:15:18.339115"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.340359"], ["name", "Katherine Warren"], ["photo_url", "katherine_warren.png"], ["updated_at", "2015-10-04 04:15:18.340359"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.341622"], ["name", "Meredith Wheeler"], ["photo_url", "meredith_wheeler.png"], ["updated_at", "2015-10-04 04:15:18.341622"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.342870"], ["name", "Courtney Wittekind"], ["photo_url", "courtney_wittekind.png"], ["updated_at", "2015-10-04 04:15:18.342870"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.344113"], ["name", "Freda Banda"], ["photo_url", "freda_banda.png"], ["updated_at", "2015-10-04 04:15:18.344113"], ["year", "2"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.345470"], ["name", "Fadzai Madzingira"], ["photo_url", "fadzai_madzingira.png"], ["updated_at", "2015-10-04 04:15:18.345470"], ["year", "2"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.347129"], ["name", "Benjamin Hunn"], ["photo_url", "benjamin_hunn.png"], ["updated_at", "2015-10-04 04:15:18.347129"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.348403"], ["name", "Geoffrey Pascoe"], ["photo_url", "geoffrey_pascoe.png"], ["updated_at", "2015-10-04 04:15:18.348403"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.349668"], ["name", "Amanda Rojek"], ["photo_url", "amanda_rojek.png"], ["updated_at", "2015-10-04 04:15:18.349668"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.351009"], ["name", "Jacob Taylor"], ["photo_url", "jacob_taylor.png"], ["updated_at", "2015-10-04 04:15:18.351009"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.352297"], ["name", "Aku Ntumy"], ["photo_url", "aku_ntumy.png"], ["updated_at", "2015-10-04 04:15:18.352297"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.353596"], ["name", "Madeleine Ballard"], ["photo_url", "madeleine_ballard.png"], ["updated_at", "2015-10-04 04:15:18.353596"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.354777"], ["name", "Connor Emdin"], ["photo_url", "connor_emdin.png"], ["updated_at", "2015-10-04 04:15:18.354777"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.356049"], ["name", "Megan Engel"], ["photo_url", "megan_engel.png"], ["updated_at", "2015-10-04 04:15:18.356049"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.357303"], ["name", "Paul Manning"], ["photo_url", "paul_manning.png"], ["updated_at", "2015-10-04 04:15:18.357303"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.358553"], ["name", "Sarah McCuaig"], ["photo_url", "sarah_mccuaig.png"], ["updated_at", "2015-10-04 04:15:18.358553"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.359804"], ["name", "Ayodele Odutayo"], ["photo_url", "ayodele_odutayo.png"], ["updated_at", "2015-10-04 04:15:18.359804"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.361027"], ["name", "Ela Naegele"], ["photo_url", "ela_naegele.png"], ["updated_at", "2015-10-04 04:15:18.361027"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.362262"], ["name", "Verena Schenzinger"], ["photo_url", "verena_schenzinger.png"], ["updated_at", "2015-10-04 04:15:18.362262"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.363526"], ["name", "Arushi Garg"], ["photo_url", "arushi_garg.png"], ["updated_at", "2015-10-04 04:15:18.363526"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.364778"], ["name", "Kiron Neale"], ["photo_url", "kiron_neale.png"], ["updated_at", "2015-10-04 04:15:18.364778"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.366021"], ["name", "Vincent Taylor"], ["photo_url", "vincent_taylor.png"], ["updated_at", "2015-10-04 04:15:18.366021"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.367280"], ["name", "Natalya Din-Kariuki"], ["photo_url", "natalya_din-kariuki.png"], ["updated_at", "2015-10-04 04:15:18.367280"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.368618"], ["name", "Victoria Miyandazi"], ["photo_url", "victoria_miyandazi.png"], ["updated_at", "2015-10-04 04:15:18.368618"], ["year", "3"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.369885"], ["name", "James Bonifacio"], ["photo_url", "james_bonifacio.png"], ["updated_at", "2015-10-04 04:15:18.369885"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.371253"], ["name", "Daniel Kaliski"], ["photo_url", "daniel_kaliski.png"], ["updated_at", "2015-10-04 04:15:18.371253"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.372498"], ["name", "Christopher Linegar"], ["photo_url", "christopher_linegar.png"], ["updated_at", "2015-10-04 04:15:18.372498"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.373794"], ["name", "Vinesh Rajpaul"], ["photo_url", "vinesh_rajpaul.png"], ["updated_at", "2015-10-04 04:15:18.373794"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.375076"], ["name", "Helen Taylor"], ["photo_url", "helen_taylor.png"], ["updated_at", "2015-10-04 04:15:18.375076"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.376316"], ["name", "Jenny Bright"], ["photo_url", "jenny_bright.png"], ["updated_at", "2015-10-04 04:15:18.376316"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.377529"], ["name", "Aidan Daly"], ["photo_url", "aidan_daly.png"], ["updated_at", "2015-10-04 04:15:18.377529"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.378733"], ["name", "Catherin Laporte-Ohsiro"], ["photo_url", "catherin_laporte-ohsiro.png"], ["updated_at", "2015-10-04 04:15:18.378733"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.380187"], ["name", "Ben Liu"], ["photo_url", "ben_liu.png"], ["updated_at", "2015-10-04 04:15:18.380187"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.381387"], ["name", "Joe Riley"], ["photo_url", "joe_riley.png"], ["updated_at", "2015-10-04 04:15:18.381387"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.382581"], ["name", "Rachel Woodlee"], ["photo_url", "rachel_woodlee.png"], ["updated_at", "2015-10-04 04:15:18.382581"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:15:18.383834"], ["name", "Nina Yancy"], ["photo_url", "nina_yancy.png"], ["updated_at", "2015-10-04 04:15:18.383834"], ["year", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "name", "photo_url", "updated_at", "year") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-10-04 04:15:18.385085"], ["name", "Naseemah Mohamed"], ["photo_url", "naseemah_mohamed.png"], ["updated_at", "2015-10-04 04:15:18.385085"], ["year", "3"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (11.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GamesController#dashboard as HTML
+  Rendered games/dashboard.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_topnavbar.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 452ms (Views: 442.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/animate/animate.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/iCheck/custom.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/jquery/jquery-2.1.1.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/inspinia.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:26 +0100
+
+
+Started GET "/assets/peity/jquery.peity.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:27 +0100
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:27 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:27 +0100
+
+
+Started GET "/assets/logo2.png" for 127.0.0.1 at 2015-10-04 05:18:27 +0100
+
+
+Started GET "/assets/rhodes_lecture_circle.png" for 127.0.0.1 at 2015-10-04 05:18:27 +0100
+
+
+Started GET "/assets/rhodes_hall_circle.png" for 127.0.0.1 at 2015-10-04 05:18:27 +0100
+
+
+Started GET "/assets/fontawesome-webfont.woff2?v=4.3.0" for 127.0.0.1 at 2015-10-04 05:18:27 +0100
+
+
+Started GET "/assets/rhodes_house_2.jpg" for 127.0.0.1 at 2015-10-04 05:18:27 +0100
+
+
+Started GET "/games-first/new" for 127.0.0.1 at 2015-10-04 05:18:28 +0100
+Processing by GamesController#new_first as HTML
+  Rendered games/_submit_game_first.html.erb (13.1ms)
+  Rendered games/new_first.html.erb within layouts/application (15.1ms)
+  Rendered layouts/_topnavbar.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 198ms (Views: 192.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/animate/animate.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/iCheck/custom.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/jquery/jquery-2.1.1.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/peity/jquery.peity.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/inspinia.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/logo2.png" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/rhodes_house_2.jpg" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/students-first" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+Processing by StudentsController#index_first as JSON
+  [1m[35mStudent Load (34.8ms)[0m  SELECT "students".* FROM "students"  WHERE "students"."year" = '1'
+Completed 200 OK in 66ms (Views: 20.6ms | ActiveRecord: 37.0ms)
+
+
+Started GET "/assets/photos/rowan_border.png" for 127.0.0.1 at 2015-10-04 05:18:29 +0100
+
+
+Started GET "/assets/photos/bogdan_knezevic.png" for 127.0.0.1 at 2015-10-04 05:18:32 +0100
+
+
+Started GET "/assets/photos/gladys_ngetich.png" for 127.0.0.1 at 2015-10-04 05:18:34 +0100
+
+
+Started GET "/assets/photos/lukas_lange.png" for 127.0.0.1 at 2015-10-04 05:18:36 +0100
+
+
+Started GET "/assets/photos/geoffrey_yeung.png" for 127.0.0.1 at 2015-10-04 05:18:38 +0100
+
+
+Started GET "/assets/photos/sai_gourisankar.png" for 127.0.0.1 at 2015-10-04 05:18:40 +0100
+
+
+Started GET "/assets/photos/finn_lowery.png" for 127.0.0.1 at 2015-10-04 05:18:43 +0100
+
+
+Started GET "/assets/photos/chris_sharwood.png" for 127.0.0.1 at 2015-10-04 05:18:45 +0100
+
+
+Started POST "/games" for 127.0.0.1 at 2015-10-04 05:18:49 +0100
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fA6O/loS2Js0XMHk9xQsyWwB6RN2qvqY988l1R54wMQ=", "game"=>{"name"=>"aSDasd", "score"=>"3", "game_type"=>"First Years"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (17.8ms)[0m  INSERT INTO "games" ("created_at", "game_type", "name", "score", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-10-04 04:18:49.927064"], ["game_type", "First Years"], ["name", "aSDasd"], ["score", 3], ["updated_at", "2015-10-04 04:18:49.927064"]]
+  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/games
+Completed 302 Found in 29ms (ActiveRecord: 23.3ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2015-10-04 05:18:49 +0100
+Processing by GamesController#index as HTML
+  [1m[35mGame Load (1.9ms)[0m  SELECT  "games".* FROM "games"   ORDER BY score DESC LIMIT 20
+  Rendered games/index.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_topnavbar.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 160ms (Views: 157.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/animate/animate.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/iCheck/custom.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/jquery/jquery-2.1.1.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/peity/jquery.peity.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/inspinia.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/logo2.png" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/assets/rhodes_house_2.jpg" for 127.0.0.1 at 2015-10-04 05:18:50 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+Processing by GamesController#dashboard as HTML
+  Rendered games/dashboard.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 125ms (Views: 124.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/animate/animate.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/iCheck/custom.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/jquery/jquery-2.1.1.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/peity/jquery.peity.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/inspinia.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/rhodes_hall_circle.png" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/rhodes_lecture_circle.png" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/logo2.png" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/assets/rhodes_house_2.jpg" for 127.0.0.1 at 2015-10-04 05:18:52 +0100
+
+
+Started GET "/games-third/new" for 127.0.0.1 at 2015-10-04 05:18:53 +0100
+Processing by GamesController#new_third as HTML
+  Rendered games/_submit_game_third.html.erb (2.2ms)
+  Rendered games/new_third.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_topnavbar.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 163ms (Views: 162.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/animate/animate.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/iCheck/custom.css?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/jquery/jquery-2.1.1.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/peity/jquery.peity.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/inspinia.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/logo2.png" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/rhodes_house_2.jpg" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/students-third" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+Processing by StudentsController#index_third as JSON
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT "students".* FROM "students"  WHERE "students"."year" = '3'[0m
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/photos/joe_riley.png" for 127.0.0.1 at 2015-10-04 05:18:54 +0100
+
+
+Started GET "/assets/photos/rachel_woodlee.png" for 127.0.0.1 at 2015-10-04 05:18:57 +0100
+
+
+Started GET "/assets/photos/catherin_laporte-ohsiro.png" for 127.0.0.1 at 2015-10-04 05:18:58 +0100

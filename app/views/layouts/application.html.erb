@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rhodes 2015 Name-That-Scholar Quiz Game">
+    <meta name="author" content="Melissa McCoy">
+    <link rel="shortcut icon" href="/favicon.ico?v=2">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Rhodes 2015 Name-That-Scholar Quiz Game</title>
+
+    <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+</head>
+<body class="top-navigation">
+
+    <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
+
+        <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
+
+            <%= render 'layouts/topnavbar' %>
+
+            <%= yield %>
+
+            <%= render 'layouts/footer' %>
+
+        </div>
+
+    </div>
+
+    <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>
+    <%= yield :javascript %>
+
+</body>
+</html>

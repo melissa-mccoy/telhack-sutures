@@ -1,0 +1,17 @@
+<%= form_for(@game) do |f| %>
+    <div class="form-group">
+        <%= label_tag(:name) %>
+        <%= f.text_field :name, :class => 'form-control', :required => true, :placeholder => 'Enter Name', :type => 'text'  %>
+    </div>
+    <div class="form-group">
+        <%= label_tag(:score, "Your Score") %>
+        <%= f.hidden_field(:score, onchange: "alert('Input collected!')") %>
+        <p id="submittedScore"></p>
+    </div>
+    <div class="form-group">
+        <%= label_tag(:game_type, "Game Type") %>
+        <%= f.hidden_field(:game_type, value: "All Scholars", onchange: "alert('Input collected!')") %>
+        <p>All Students</p>
+    </div>
+    <%= f.submit "Submit", :class => 'btn btn-primary block m-b' %>
+<% end %>

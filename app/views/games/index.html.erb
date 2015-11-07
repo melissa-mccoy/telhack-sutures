@@ -1,0 +1,37 @@
+<div class="wrapper wrapper-content">
+<div class="row animated fadeInLeft text-center">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="ibox-title">
+      <h1><i class="fa fa-trophy modal-icon"></i> High Scores</h1>
+    </div>
+    <div class="ibox-content">
+      <table class="footable table table-stripped default footable-loaded" data-page-size="8" data-filter="#filter" >
+          <thead>
+            <tr>
+                <th class="footable-visible footable-first-column footable-sortable text-center">Name</th>
+                <th class="footable-visible footable-sortable text-center">Score</th>
+                <th class="footable-visible footable-sortable text-center">Game Type</th>
+                <th data-hide="phone,tablet" class="footable-visible footable-last-column footable-sortable text-center">Date & Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for game in @games %>
+              <tr class="gradeX footable-even" style="display: table-row;">
+                <td class="footable-visible footable-first-column"><span class="footable-toggle"></span><strong><%= game.name %></strong></td>
+                <td class="footable-visible"><span class="footable-toggle"></span><%= game.score %></td>
+                <td class="footable-visible"><span class="footable-toggle"></span><%= game.game_type %></td>
+                <td class="center footable-visible footable-last-column"><span class="footable-toggle"></span><%= game.created_at.strftime("%d/%m/%Y") %>, <%= game.created_at.strftime("%I:%M%p") %></td>
+              </tr>
+            <% end %>
+           </tbody>
+           <tfoot>
+          <tr>
+              <td colspan="8" class="footable-visible">
+              </td>
+          </tr>
+          </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
