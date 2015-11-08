@@ -17,10 +17,13 @@
         <h4>Instructions:</h4>
         <ol>
           <li>Make a hole in the banana with a 4 mm aortic punch.</li>
-          <li>Space sutures from inside to out around the hole</li>
-          <li>Make 12 sutures (from 1 to 12 o'clock) around the hole.</li>
-          <li>Suture should exit 4 mm from the edge of the hole</li>
-          <li>The exit point should be precise with no tearing.</li>
+          <li>Put your nondominant arm behind your back and keep it there.</li>
+          <li>Start the clock.</li>
+          <li>Place the first suture in the 12 o'clock position from inside the the hole to emerge approximately 4 mm from the edge.</li>
+          <li>Continue around the clock placing twelve sutures radially and symmetrically.</li>
+          <li>Ensure the exit hole is precise with no tearing.</li>
+          <li>On completion, stop the clock.</li>
+          <li>Check your results!</li>
         </ol>
         <p>Insert 12 concentric sutures beginning from inside the hole to a distance 4 mm from the wound edge. The sutures should be evenly spaced from 1 to 12 o'clock.</p>
       </div>
@@ -45,7 +48,9 @@
           <div class="row" id="photo-row">
             <div class="col-md-12">
               <h2>Your suture time: <span id="suture-time"></span></h2>
-              <p>Take a picture of your banana sutures. <a rel="popover" data-img="<%= image_url 'example_photo.png' %>">See how to line it up.</a></p>
+              <p>Take a picture of your banana sutures.
+                <a id="photo-popover" rel="popover" data-img="<%= image_url 'example_photo.png' %>">See how to line it up.</a>
+              </p>
               <p>You will need to allow this site access to the camera in your browser.</p>
               <select id="videoSource" style="display: none;"></select>
               <div class="video-box">
@@ -179,7 +184,7 @@
                 <tr id="results-distance">
                   <th>Uniform distribution from wound edge</th>
                   <td></td>
-                  <td>2</td>
+                  <td><a id="distance-popover" rel="popover">2</a></td>
                 </tr>
                 <tr id="results-spacing">
                   <th>Uniform spacing of sutures</th>
@@ -220,7 +225,7 @@ $(document).ready(function() {
   });
 
   // Tooltip/popover for help
-  $('a[rel=popover]').popover({
+  $('#photo-popover[rel=popover]').popover({
     html: true,
     trigger: 'hover',
     placement: 'bottom',
@@ -228,6 +233,16 @@ $(document).ready(function() {
       var image = '<img src="' + $(this).data('img') + '" />';
       var text = '<p>Position your camera such that the inner circle covers the opening and the outer circle is at the edges of the suture. One of your sutures should be at the upper dot.</p>';
       return text + image;
+    }
+  });
+
+  // Tooltip/popover for help
+  $('#distance-popover[rel=popover]').popover({
+    html: true,
+    trigger: 'hover',
+    placement: 'bottom',
+    content: function () {
+      return '<p>To ensure a uniform distance from the edge: mount your needle in the right place and control the movement of the needle holder by accurate rotation of your wrist.';
     }
   });
 
@@ -446,7 +461,6 @@ $(document).ready(function() {
       }
 
       function reset() {
-        // clock = 478000;
         clock = 0;
         render(0);
       }
