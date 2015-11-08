@@ -7,8 +7,10 @@ class GamesController < ApplicationController
   end
 
   def score_image
-    puts(params)
-    render :json => {"score1" => 10, "score2" => 5}
+    puts params
+    msg = { :status => "ok", :message => "Success!", :html => "<b>...</b>" }
+    format.json  { render :json => msg } # don't do msg.to_json
+    #render json: {"score1" => 10, "score2" => 5}
   end
 
   def new

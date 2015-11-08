@@ -4,6 +4,7 @@ body {
   font-size: 13px;
   color: $text-color;
   overflow-x: hidden;
+  font-weight: 400;
 
 }
 
@@ -634,10 +635,12 @@ table.table-mail tr td {
 /* BACKGROUNDS */
 
 .gray-bg {
-  background-image: url(/assets/banana_back.jpg);
+  //background-image: url(/assets/banana_back.jpg);
+  //background-image: url(/assets/banana_bg_repeat.png);
   background-position: center;
-  background-repeat: no-repeat;
-  background-color: $gray;
+  //background-repeat: no-repeat;
+  //background-color: $gray;
+  background-color: #F3F3F4;
 }
 
 .white-bg {
@@ -1215,3 +1218,81 @@ a.close-canvas-menu:hover {
 // Bootstrap issue in 3.3.0 with modal https://github.com/twbs/bootstrap/issues/9855
 // Fix
 body.modal-open { padding-right:inherit !important; }
+
+
+// ADDITIONAL CSS FOR PHOTO UPLOAD PAGE
+h1.left {
+  text-align: left;
+}
+table#self-assessment-table {
+  td {
+    width: 12%;
+    vertical-align: top;
+  }
+
+  th {
+    vertical-align: top;
+    width: 40%;
+  }
+
+  td, th {
+    padding-top: 16px;
+    /*border: 1px solid grey;*/
+  }
+}
+
+table th {
+  font-size: 16px;
+}
+
+h1.inactive-header {
+  color: #dedfe0;
+}
+
+.video-box {
+  position: relative;
+  max-height: 480px;
+  max-width: 640px;
+  margin: auto;
+
+  #video.flipped {
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+  }
+
+  #video-filler {
+    width: 100%;
+    max-width: 640px;
+    padding-bottom: 75%;
+  }
+
+  #video, #photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  #video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.popover-content img {
+  width: 100%;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.suture-page {
+  .btn {
+    font-weight: 600;
+    margin: 15px 15px 15px 0;
+    text-transform: uppercase;
+  }
+}

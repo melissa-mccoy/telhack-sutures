@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 39.999999 40"
+   version="1.1"
+   x="0px"
+   y="0px"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="banana_logo.svg"
+   width="40"
+   height="40"
+   inkscape:export-filename="/home/jtebert/Copy/Projects/Programming/telhack-sutures/app/assets/images/banana_logo.png"
+   inkscape:export-xdpi="243"
+   inkscape:export-ydpi="243">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>banana</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1600"
+     inkscape:window-height="900"
+     id="namedview14"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="3.814336"
+     inkscape:cx="59.320404"
+     inkscape:cy="31.957231"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <title
+     id="title4">banana</title>
+  <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+  <path
+     style="fill:#eed500;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1"
+     inkscape:connector-curvature="0"
+     id="path8"
+     sketch:type="MSShapeGroup"
+     d="m 1.4772354,31.065272 c 0,0 12.7208416,0.518986 19.3514696,-3.476295 3.677138,-2.215655 9.73577,-7.271808 12.978988,-13.397844 C 36.67361,8.7777728 35.688322,1.9369188 36.185472,1.2116237 36.682622,0.48632867 40.000001,0.94408577 40,3.2033818 c -2e-6,2.2592957 -1.70962,3.0150893 -2.071862,3.8203453 -0.362244,0.8052563 -0.828501,2.8754545 -0.508798,3.5123899 0.980046,1.952524 3.065005,6.088106 1.813679,12.061815 -0.658066,3.141544 -3.557714,8.130379 -7.919537,11.592021 -3.932276,3.120738 -9.089871,4.887454 -14.2178,4.915366 -10.8160185,0.05886 -15.6184466,-4.323615 -15.6184466,-4.323615 -2.5716386,-1.733345 -1.26151455,-4.130338 0,-3.716432 z" />
+  <text
+     x="-0.79059368"
+     y="55.363014"
+     font-size="5px"
+     font-weight="bold"
+     id="text10"
+     style="font-weight:bold;font-size:5px;font-family:'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif;fill:#000000">Created by Pham Thi Dieu Linh</text>
+  <text
+     x="-0.79059368"
+     y="60.363014"
+     font-size="5px"
+     font-weight="bold"
+     id="text12"
+     style="font-weight:bold;font-size:5px;font-family:'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif;fill:#000000">from the Noun Project</text>
+</svg>

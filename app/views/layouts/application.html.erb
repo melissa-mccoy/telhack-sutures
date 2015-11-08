@@ -7,6 +7,7 @@
     <meta name="description" content="Score My Sutures - TelHack London 2015">
     <meta name="author" content="Melissa McCoy">
     <link rel="shortcut icon" href="/favicon.ico?v=2">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,700' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1.0">
     <title>Score My Sutures - TelHack London 2015</title>
@@ -18,22 +19,10 @@
 </head>
 <body class="top-navigation">
 
-    <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
+  <%= yield %>
 
-        <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
-
-            <%= render 'layouts/topnavbar' %>
-
-            <%= yield %>
-
-            <%= render 'layouts/footer' %>
-
-        </div>
-
-    </div>
-
-    <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>
-    <%= yield :javascript %>
+  <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>
+  <%= yield :javascript %>
 
 </body>
 </html>

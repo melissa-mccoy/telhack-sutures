@@ -1,28 +1,242 @@
-<div class="wrapper wrapper-content">
-    <div class="row animated fadeInLeft">
-        <div class="col-lg-6 text-center">
-            <div class="ibox">
-              <div class="ibox-title">
-                <h1><strong>How Well Do You Suture<br>On a Banana?</strong></h1>
-              </div>
-              <div class="ibox-content" style="height:425px">
-                  <%= image_tag "banana_circle.png", width: "30%", style:"margin:20px 0;"%>
-                    <h3 style="margin:10px">Upload a photo of your sutured banana to get your score.</h3>
-                    <button class="btn btn-primary dim" style="margin:10px"><%= link_to 'Get Your Score', new_game_path, style:"color:#fff" %></button>
-              </div>
-            </div>
+<div id='page-top' class="landing-page no-skin-config  pace-done" style="background-color: #F3F3F4;">
+
+  <div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+    <div class="pace-progress-inner"></div>
+  </div>
+    <div class="pace-activity"></div></div>
+
+  <div class="navbar-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Score My Sutures</a>
         </div>
-        <div class="col-lg-6 text-center">
-            <div class="ibox">
-              <div class="ibox-title">
-                <h1><strong>How Well Do You Suture<br>On Other Practice Items?</strong></h1>
-              </div>
-              <div class="ibox-content" style="height:425px">
-                  <%= image_tag "orange_circle.png", width: "30%", style:"margin:20px 0;" %>
-                  <h3 style="margin:10px"><br>We'll soon add the ability to score other practice items like oranges! Yum.</h3>
-                  <h3 style="font-size:18px;"><br>Coming Soon</h3>
-              </div>
-            </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a class="page-scroll" href="#page-top">Home</a></li>
+            <li class=""><a class="page-scroll" href="#features">Features</a></li>
+            <li><a class="page-scroll" href="#future">Coming Soon</a></li>
+            <li><a class="page-scroll" href="#contact">Contact</a></li>
+          </ul>
         </div>
+      </div>
+    </nav>
+  </div>
+
+  <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Score My Sutures:<br>
+              Suture bananas and<br>
+              then something that<br/>
+              sounds impressive</h1><!--TODO-->
+            <p>Get instant feedback on suturing technique</p>
+            <p>
+              <a class="btn btn-lg btn-primary dim" href="/games/new/" role="button">Score Your Sutures</a>
+            </p>
+          </div>
+          <div class="carousel-image wow fadeInDown animated" style="visibility: visible;">
+            <%= image_tag 'banana.png', width:'600px', :style => 'margin-top: -60px;' %>
+          </div>
+        </div>
+        <!-- Set background for slide in css -->
+        <div class="header-back one"></div>
+      </div>
     </div>
+  </div>
+
+  <section class="container features" id="features">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="navy-line"></div>
+        <h1>
+          Practice your suturing skills<br/>
+          <span class="navy">with instant feedback</span>
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 text-center wow fadeInLeft animated m-t-lg" style="visibility: visible;" animation-name="fadeInLeft;">
+        <h2>Students</h2>
+        <div class="m-t-lg">
+          <object data="<%=image_url 'banana_logo.svg' %>" type="image/svg+xml" class="features-icon"></object>
+          <p>Suture a banana, take a picture, and get instant feedback on your performance.</p>
+        </div>
+        <div class="m-t-lg">
+          <i class="fa fa-clock-o features-icon"></i>
+          <p>Practice anywhere on your own time, with submetrics to help you improve.</p>
+        </div>
+        <div class="m-t-lg">
+          <i class="fa fa-male features-icon"></i>
+          <p>Learn techniques in a simulated environment instead of on patients.</p>
+        </div>
+      </div>
+      <div class="col-md-6 text-center fadeInUp wow zoomIn animated  m-t-lg" style="visibility: visible;">
+        <%= image_tag 'suture_banana_4_rot.jpg', :class => "img-responsive" %>
+      </div>
+      <div class="col-md-3 text-center wow fadeInRight animated m-t-lg" style="visibility: visible;" animation-name="fadeInLeft;">
+        <h2>Educators</h2>
+        <div class="m-t-lg">
+          <i class="fa fa-user-md features-icon"></i>
+          <p>Use objective measures of students' sutures to improve evaluations by eliminating bias and subjectivity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container features" id="future">
+    <div class="row m-b-lg">
+      <div class="col-lg-12 text-center">
+        <div class="navy-line"></div>
+        <h1>
+          Coming soon<br/>
+          <span class="navy">for students and educators</span>
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 text-center wow fadeInLeft animated" style="visibility: visible;" animation-name="fadeInLeft;">
+        <div>
+          <i class="fa fa-line-chart features-icon"></i>
+          <h2>Track Improvement</h2>
+          <p>Save and track your performance to see your improvement. Compare your scores to classmates in a high score list.</p>
+        </div>
+        <div class="m-t-lg">
+          <object data="<%=image_url 'pear_logo.svg' %>" type="image/svg+xml" class="features-icon"></object>
+          <h2>More Procedures</h2>
+          <p>We will add assessment of additional suturing procedures (on fruit and otherwise), so you can keep practising new skills.</p>
+        </div>
+      </div>
+      <div class="col-md-3 text-center wow fadeInLeft animated" style="visibility: visible;" animation-name="fadeInLeft;">
+        <div>
+          <i class="fa fa-check features-icon"></i>
+          <h2>Evaluation</h2>
+          <p>Instructors and evaluators can view student performance</p>
+        </div>
+        <div class="m-t-lg">
+          <i class="fa fa-info features-icon"></i>
+          <h2>Top Tips</h2>
+          <p>Get personalised tips for improvement based on your individual performance.</p>
+        </div>
+        <div class="m-t-lg">
+          <i class="fa fa-group features-icon"></i>
+          <h2>Share</h2>
+          <p>Share suture photos and get feedback and tips from peers.</p>
+        </div>
+      </div>
+      <div class="col-md-6 text-center fadeInRight wow zoomIn animated" style="visibility: visible;">
+        <%= image_tag 'suture_thread_sm.jpg', :class => "img-responsive" %>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="gray-section contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="navy-line"></div>
+          <h1>Contact Us</h1>
+          <p>Add some contact/footer information here</p><!--TODO-->
+        </div>
+      </div>
+      <!--<div class="row m-b-lg]">
+        <div class="col-lg-3 col-lg-offset-3">
+          <address>
+            <strong><span class="navy">Company name, Inc.</span></strong><br>
+            795 Folsom Ave, Suite 600<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+          </address>
+        </div>
+        <div class="col-lg-4">
+          <p class="text-color">
+            Consectetur adipisicing elit. Aut eaque, totam corporis laboriosam veritatis quis ad perspiciatis, totam corporis laboriosam veritatis, consectetur adipisicing elit quos non quis ad perspiciatis, totam corporis ea,
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <a href="mailto:test@email.com" class="btn btn-primary">Send us mail</a>
+          <p class="m-t-sm">
+            Or follow us on social platform
+          </p>
+          <ul class="list-inline social-icon">
+            <li><a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>-->
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+          <p><strong>© 2015</strong><br>Created at TELHack 2015</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
+
+<script>
+
+  $(document).ready(function () {
+
+    $('body').scrollspy({
+      target: '.navbar-fixed-top',
+      offset: 80
+    });
+
+    // Page scrolling feature
+    $('a.page-scroll').bind('click', function(event) {
+      var link = $(this);
+      $('html, body').stop().animate({
+        scrollTop: $(link.attr('href')).offset().top - 50
+      }, 500);
+      event.preventDefault();
+    });
+  });
+
+  var cbpAnimatedHeader = (function() {
+    var docElem = document.documentElement,
+        header = document.querySelector( '.navbar-default' ),
+        didScroll = false,
+        changeHeaderOn = 200;
+    function init() {
+      window.addEventListener( 'scroll', function( event ) {
+        if( !didScroll ) {
+          didScroll = true;
+          setTimeout( scrollPage, 250 );
+        }
+      }, false );
+    }
+    function scrollPage() {
+      var sy = scrollY();
+      if ( sy >= changeHeaderOn ) {
+        $(header).addClass('navbar-scroll')
+      }
+      else {
+        $(header).removeClass('navbar-scroll')
+      }
+      didScroll = false;
+    }
+    function scrollY() {
+      return window.pageYOffset || docElem.scrollTop;
+    }
+    init();
+
+  })();
+
+  // Activate WOW.js plugin for animation on scrol
+  new WOW().init();
+
+</script>

@@ -11,4 +11,8 @@
 //= require metisMenu/jquery.metisMenu.js
 //= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
+//= require iCheck/icheck.min.js
+//= require wow/wow.min.js
+//= require pace/pace.min.js
+//= require jvectormap/jquery-jvectormap-2.0.2.min.js
 //= require inspinia.js

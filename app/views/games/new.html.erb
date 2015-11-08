@@ -1,191 +1,235 @@
+<div id="page-wrapper" class="suture-page gray-bg <%= @extra_class %> <%= params[:controller] %>.<%= params[:action] %>">
+
+    <%= render 'layouts/topnavbar' %>
+
+
 <div class="wrapper wrapper-content">
-<div class="row animated fadeInLeft">
-  <div class="col-md-8 col-md-offset-2 text-center">
-    <div class="ibox-title">
-      <div class="row">
-        <div class="col-sm-4 text-left">
-          <h3 class="btn dim"><strong>Your Score: <span id="score">0</span></strong></h3>
-        </div>
-        <div class="col-sm-4 col-sm-offset-4 text-right">
-          <button id="submitScore" class="btn" data-toggle="modal" data-target="#submitModal" style="margin-bottom:0"><h3 style="margin-bottom:5px;"><i class="fa fa-check-square"></i> Submit Score</h3></button>
-        </div>
+  <div class="row animated fadeInLeft">
+    <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
+
+      <div class="ibox-title m-b-lg">
+        <h1>Instructions</h1>
+        <h4>Materials:</h4>
+        <ul>
+          <li>1 banana (not overripe)</li>
+          <li>1 5-0 round-bodied 13 mm monofilament non-absorbable suture</li>
+        </ul>
+        <h4>Instructions:</h4>
+        <ol>
+          <li>Make a hole in the banana with a 4 mm aortic punch.</li>
+          <li>Space sutures from inside to out around the hole</li>
+          <li>Make 12 sutures (from 1 to 12 o'clock) around the hole.</li>
+          <li>Suture should exit 4 mm from the edge of the hole</li>
+          <li>The exit point should be precise with no tearing.</li>
+        </ol>
+        <p>Insert 12 concentric sutures beginning from inside the hole to a distance 4 mm from the wound edge. The sutures should be evenly spaced from 1 to 12 o'clock.</p>
       </div>
-      <h1><strong>Who is pictured below?</strong></h1>
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <video id="video" width="640" height="480" autoplay></video>
-          <button id="snap" class="btn btn-primary block m-b ans inline dim">Snap Photo</button>
-          <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
-          <img id="photo" class="img-responsive img-center"/> <!--style="max-height:200px;margin-top:15px;margin-bottom:25px;"-->
-          <button id="retake" style="display: none !important;" class="btn btn-primary block m-b ans inline dim">Retake Photo</button>
-        </div>
-      </div>
-      <div class="row">
-        <button id="0" class="btn btn-primary block m-b ans inline dim"></button>
-        <button id="1" class="btn btn-primary block m-b ans inline dim"></button>
-        <button id="2" class="btn btn-primary block m-b ans inline dim"></button>
-        <button id="3" class="btn btn-primary block m-b ans inline dim"></button>
-      </div>
-      <div class="row animated fadeInLeft">
-        <div class="col-sm-6 col-sm-offset-3">
-          <div id="responseMessage"></div>
-        </div>
-      </div>
-      <div class="row text-center">
-        <div class="col-sm-12">
-          <button class="btn" id="next" style="display:none;margin-bottom:10px;"> Next <i class="fa fa-chevron-right"></i></button>
-        </div>
-      </div>
-      <div class="row text-right">
-      </div>
-    </div>
-    <div class="modal inmodal" id="submitModal" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content animated fadeIn">
-              <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cancel</span></button>
-                  <i class="fa fa-trophy modal-icon"></i>
-                  <h4 class="modal-title">Submit Score</h4>
-              </div>
-              <div class="modal-body" style="max-height: 350px; overflow-y: auto;">
-                  <%= render 'submit_game' %>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
-              </div>
+
+      <div class="ibox-title m-b-lg">
+        <h1 id="timer-row-header">1.&ensp;Time your Suture</h1>
+        <div class="row collapse in" id="timer-row">
+          <div class="col-md-12">
+            <div class="alert alert-danger" style="display: none;" id="timer-alert">You must time your suture to continue.</div>
+            <div class="stopwatch text-center" id="timer">
+              <button class="btn  btn-primary" id="timer-start"><i class="fa fa-play"></i>&ensp;Start</button>
+              <button class="btn  btn-primary" id="timer-stop"><i class="fa fa-stop"></i>&ensp;Stop</button>
+              <button class="btn  btn-success" id="timer-finish"><i class="fa fa-arrow-right"></i>&ensp;Finish</button>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <div class="ibox-title m-b-lg">
+        <h1 id="photo-entry-header" class="inactive-header">2.&ensp;Take a Picture of your Suture</h1>
+        <div class="collapse" id="photo-entry">
+          <div class="row" id="photo-row">
+            <div class="col-md-12">
+              <h2>Your suture time: <span id="suture-time"></span></h2>
+              <p>Take a picture of your banana sutures. <a rel="popover" data-img="<%= image_url 'example_photo.png' %>">See how to line it up.</a></p>
+              <p>You will need to allow this site access to the camera in your browser.</p>
+              <select id="videoSource" style="display: none;"></select>
+              <div class="video-box">
+                <div id="video-filler"></div>
+                <video id="video" autoplay></video>
+                <img id="photo" class="img-responsive img-center"/>
+                <object id="video-overlay" data="<%= image_url 'photo_target.svg' %>"></object>
+                <!--<svg width="640" height="480" id="video-overlay" viewBox="0 0 100 100">
+                  <circle cx="320" cy="240" r="120" stroke="red" stroke-width="3" fill="none" />
+                  <circle cx="320" cy="240" r="40" stroke="red" stroke-width="3" fill="none" />
+                  <circle cx="320" cy="120" r="10" fill="red" />
+                </svg>-->
+              </div>
+              <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
+            </div>
+          </div>
+          <div class="row text-center" id="button-row">
+            <div class="col-md-12">
+              <button id="camera" class="btn btn-primary"><i class="fa fa-exchange"></i>&ensp;Change Camera</button>
+              <button id="snap" class="btn btn-success"><i class="fa fa-camera"></i>&ensp;Take Photo</button>
+              <button id="retake" style="display: none !important;" class="btn btn-primary"><i class="fa fa-camera"></i>&ensp;Retake Photo</button>
+              <button id="submit-photo" class="btn btn-success" style="display: none !important;"><i class="fa fa-arrow-right"></i>&ensp;Continue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ibox-title m-b-lg">
+        <h1 id="self-assessment-row-header" class="inactive-header">3.&ensp;Self Assessment</h1>
+        <div class="row collapse" id="self-assessment-row">
+          <div class="col-md-12">
+          <div class="alert alert-danger" style="display: none;" id="self-assessment-alert">You must complete all self-assessment questions.</div>
+          <p>Rate your suture skills in each of the following categories.</p>
+          <form name="self-assessment-form" action="" method="get">
+            <table id="self-assessment-table">
+              <tr class="radios">
+                <th rowspan="2">Respect for tissue: cut skin</th>
+                <td><input type="radio" name="cut-skin" value="1"></td>
+                <td><input type="radio" name="cut-skin" value="2"></td>
+                <td><input type="radio" name="cut-skin" value="3"></td>
+                <td><input type="radio" name="cut-skin" value="4"></td>
+                <td><input type="radio" name="cut-skin" value="5"></td>
+              </tr>
+              <tr>
+                <td><b>1</b><br/>Multiple cuts/tears to skin caused by unnecessary force</td>
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+                <td><b>4</b></td>
+                <td><b>5</b><br/>No cuts/tears caused to skin</td>
+              </tr>
+
+              <tr class="radios">
+                <th rowspan="2">Uniform distance from wound edge</th>
+                <td><input type="radio" name="distance" value="1"></td>
+                <td><input type="radio" name="distance" value="2"></td>
+                <td><input type="radio" name="distance" value="3"></td>
+                <td><input type="radio" name="distance" value="4"></td>
+                <td><input type="radio" name="distance" value="5"></td>
+              </tr>
+              <tr>
+                <td><b>1</b><br/>All sutures irregularly placed from wound edge</td>
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+                <td><b>4</b></td>
+                <td><b>5</b><br/>All exit points 4mm from wound edge</td>
+              </tr>
+
+              <tr class="radios">
+                <th rowspan="2">Uniform spacing of sutures</th>
+                <td><input type="radio" name="spacing" value="1"></td>
+                <td><input type="radio" name="spacing" value="2"></td>
+                <td><input type="radio" name="spacing" value="3"></td>
+                <td><input type="radio" name="spacing" value="4"></td>
+                <td><input type="radio" name="spacing" value="5"></td>
+              </tr>
+              <tr>
+                <td><b>1</b><br/>No sutures evenly spaced</td>
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+                <td><b>4</b></td>
+                <td><b>5</b><br/>All sutures evenly spaced</td>
+              </tr>
+
+              <tr class="radios">
+                <th rowspan="2">Respect for tissue: exit holes</th>
+                <td><input type="radio" name="exit-holes" value="1"></td>
+                <td><input type="radio" name="exit-holes" value="2"></td>
+                <td><input type="radio" name="exit-holes" value="3"></td>
+                <td><input type="radio" name="exit-holes" value="4"></td>
+                <td><input type="radio" name="exit-holes" value="5"></td>
+              </tr>
+              <tr>
+                <td><b>1</b><br/>Multiple cuts/tears to skin caused by unnecessary force</td>
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+                <td><b>4</b></td>
+                <td><b>5</b><br/>No cuts/tears caused to skin</td>
+              </tr>
+            </table>
+          </form>
+          <div class="text-center">
+            <button class="btn btn-success" id="self-assessment-submit"><i class="fa fa-arrow-right"></i>&ensp;Continue</button>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ibox-title m-b-lg">
+        <h1 id="results-row-header" class="inactive-header">4.&ensp;View Results</h1>
+        <div class="row collapse" id="results-row">
+          <div class="col-md-9 col-md-offset-1">
+            <table class="table ibox" id="results-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Self-Assessment</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="results-cut-skin">
+                  <th>Respect for tissue: cut skin</th>
+                  <td></td>
+                  <td>4</td>
+                </tr>
+                <tr id="results-time">
+                  <th>Time</th>
+                  <td>–</td>
+                  <td></td>
+                </tr>
+                <tr id="results-distance">
+                  <th>Uniform distribution from wound edge</th>
+                  <td></td>
+                  <td>2</td>
+                </tr>
+                <tr id="results-spacing">
+                  <th>Uniform spacing of sutures</th>
+                  <td></td>
+                  <td>3</td>
+                </tr>
+                <tr id="results-exit-holes">
+                  <th>Respect for tissue: exit holes</th>
+                  <td></td>
+                  <td>5</td>
+                </tr>
+                <tr id="results-global" style="font-weight: bold; font-size: 16px;">
+                  <th>GLOBAL SCORE</th>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  </div>
+  <%= render 'layouts/footer' %>
+  </div>
+
 </div>
-</div>
+
+<script type="text/javascript" src=""></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 
-  //Add Shuffle Function to Array class
-  Array.prototype.shuffle = function() {
-    var input = this;
-    for (var i = input.length-1; i >=0; i--) {
-        var randomIndex = Math.floor(Math.random()*(i+1));
-        var itemAtIndex = input[randomIndex];
-        input[randomIndex] = input[i];
-        input[i] = itemAtIndex;
+  $('input').iCheck({
+    checkboxClass: 'icheckbox_square-green',
+    radioClass: 'iradio_square-green'
+  });
+
+  // Tooltip/popover for help
+  $('a[rel=popover]').popover({
+    html: true,
+    trigger: 'hover',
+    placement: 'bottom',
+    content: function(){
+      var image = '<img src="'+$(this).data('img') + '" />';
+      var text = '<p>Position your camera such that the inner circle covers the opening and the outer circle is at the edges of the suture. One of your sutures should be at the upper dot.</p>';
+      return text + image;
     }
-    return input;
-  }
-
-  //Student Model
-  Student = function(name,facebookID,photoURL) {
-    this.name = name;
-    this.facebookID = facebookID;
-    this.photoURL = photoURL;
-    this.chosen = false;
-  }
-
-  //Game Model
-  Game = function() {
-    this.allStudents = []
-    this.remainingStudents = [];
-    this.photoURL = "";
-    this.score = 0;
-  }
-
-  Game.prototype = {
-    start: function() {
-      //Seed all students
-      $.ajax({
-        method: "GET",
-        url: "/students",
-        dataType: "json"
-      }).done(function(studentsJsonArray) {
-          console.log("Response successful")
-          console.log(studentsJsonArray)
-          this.createStudents(studentsJsonArray);
-          this.renderQuestion();
-      }.bind(this));
-      //Listener & actions on Next Button
-      $("#next").click(function(e){
-        $("#responseMessage").html("")
-        this.renderQuestion();
-        $("#next").hide();
-      }.bind(this));
-      //Listener & actions on End & Save Button
-      $("#submitScore").click(function(e){
-        $("#submittedScore").html(this.score)
-      }.bind(this));
-      //Listener on Submit Score Form
-      $('form').submit(function() {
-        console.log(this.score)
-        $("#game_score").val(this.score);
-        return true;
-      }.bind(this));
-    },
-    createStudents: function(studentsJsonArray) {
-      for(var i=1;i<studentsJsonArray.length;i++) {
-      this.allStudents.push(new Student(studentsJsonArray[i].name,studentsJsonArray[i].facebook_id,studentsJsonArray[i].photo_url));
-     }
-     console.log(this.allStudents)
-     this.remainingStudents = this.allStudents;
-    },
-    getStudentChoices: function(count) {
-      var studentChoices =[];
-      var studentIndexes =[];
-      //Get Chosen Student
-      var chosenStudentIndex = Math.floor(Math.random()*this.remainingStudents.length);
-      var chosenStudent = this.remainingStudents[chosenStudentIndex];
-      chosenStudent.chosen = true;
-      this.remainingStudents.splice(chosenStudentIndex, 1);
-      studentChoices.push(chosenStudent);
-      studentIndexes.push(chosenStudentIndex);
-      //Get Other Students
-      var totalStudentsCount = this.allStudents.length;
-      while(studentIndexes.length < count){
-        var index=Math.floor(Math.random()*totalStudentsCount);
-        var alreadyChosen=false;
-        for(var i=0;i<studentIndexes.length;i++) {
-          if(studentIndexes[i]==index){alreadyChosen=true;break}
-        }
-        if(!alreadyChosen) {
-          studentIndexes.push(index);
-          studentChoices.push(this.allStudents[index]);
-        }
-      }
-      return studentChoices;
-    },
-    renderQuestion: function() {
-      var studentChoices = this.getStudentChoices(4);
-      var chosenStudent = studentChoices[0];
-      studentChoices.shuffle();
-      $('#0').html(studentChoices[0].name);
-      $('#1').html(studentChoices[1].name);
-      $('#2').html(studentChoices[2].name);
-      $('#3').html(studentChoices[3].name);
-      $('#photo').attr("src","/assets/photos/"+chosenStudent.photoURL);
-
-      //Add Listeners to Answer Choices & specify if correct/incorrect when clicked
-      $(".ans").click(function(e){
-        var clickedId = e.target.id;
-        if(studentChoices[Number(clickedId)].chosen == true) {
-          $("#responseMessage").html('<div class="alert alert-success alert-dismissable" style="margin-bottom:10px;">Correct.</div>');
-          this.score = this.score+1;
-          console.log(this.score);
-          $("#score").html(this.score);
-          $("#next").show();
-        } else {
-          $("#responseMessage").html('<div id="incorrect" class="alert alert-danger alert-dismissable" style="margin-bottom:10px;">Incorrect. The correct answer is '+chosenStudent.name+'</div>');
-          $("#next").show();
-        }
-        $(".ans").unbind("click");
-      }.bind(this));
-    }
-  }
-
-  // Start Game (Refactor ToDos: (1) divide functions into Game Controller & Game Model. (2) move code into asset pipeline)
-  var game = new Game()
-  game.start()
-
-
-  // PHOTO CAPTURE
+  });
 
   function convertCanvasToImage(canvas) {
     var image = new Image();
@@ -201,35 +245,99 @@ $(document).ready(function() {
         video = document.getElementById("video"),
         videoObj = { "video": true },
         snap = document.getElementById("snap"),
+        camera = document.getElementById("camera"),
         retake = document.getElementById("retake"),
         photo = document.getElementById("photo"),
+        submitPhoto = document.getElementById("submit-photo"),
         localStream,
         errBack = function(error) {
           console.log("Video capture error: ", error.code);
         };
 
+    'use strict';
 
-    // Put video listeners into place
-    if(navigator.getUserMedia) { // Standard
-      navigator.getUserMedia(videoObj, function(stream) {
-        video.src = stream;
-        video.play();
-        localStream = stream;
-      }, errBack);
-    } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
-      navigator.webkitGetUserMedia(videoObj, function(stream){
-        video.src = window.webkitURL.createObjectURL(stream);
-        video.play();
-        localStream = stream;
-      }, errBack);
+    var videoElement = document.querySelector('video');
+    var videoSelect = document.querySelector('select#videoSource');
+
+    navigator.getUserMedia = navigator.getUserMedia ||
+        navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+    function gotSources(sourceInfos) {
+      for (var i = 0; i !== sourceInfos.length; ++i) {
+        var sourceInfo = sourceInfos[i];
+        var option = document.createElement('option');
+        option.value = sourceInfo.id;
+        if (sourceInfo.kind === 'video') {
+          option.text = sourceInfo.label || 'camera ' + (videoSelect.length + 1);
+          videoSelect.appendChild(option);
+        }
+      }
     }
-    else if(navigator.mozGetUserMedia) { // Firefox-prefixed
-      navigator.mozGetUserMedia(videoObj, function(stream){
-        video.src = window.URL.createObjectURL(stream);
-        video.play();
-        localStream = stream;
-      }, errBack);
+
+    if (typeof MediaStreamTrack === 'undefined'){
+      alert('This browser does not support MediaStreamTrack.\n\nTry Chrome.');
+    } else {
+      MediaStreamTrack.getSources(gotSources);
     }
+
+    function successCallback(stream) {
+      window.stream = stream; // make stream available to console
+      videoElement.src = window.URL.createObjectURL(stream);
+      videoElement.play();
+    }
+
+    function errorCallback(error){
+      console.log('navigator.getUserMedia error: ', error);
+    }
+
+    function startVideo(){
+      if (!!window.stream) {
+        videoElement.src = null;
+        window.stream.stop();
+      }
+      var videoSource = videoSelect.value;
+      var constraints = {
+        video: {
+          optional: [{sourceId: videoSource}]
+        }
+      };
+      navigator.getUserMedia(constraints, successCallback, errorCallback);
+      // Flip video as necessary
+      var videoVals = $.map(videoSelect.options, function(x, i) {
+        return x.value;
+      });
+      if ($.inArray(videoSelect.value, videoVals) % 2 == 0) {
+        $('#video').addClass('flipped');
+      } else {
+        $('#video').removeClass('flipped');
+      }
+    }
+
+    // TODO: Add back in but prevent on initial load
+    videoSelect.onchange = startVideo;
+
+
+    // Trigger camera change (and mirror video)
+    camera.addEventListener('click', function() {
+      var opts = videoSelect.options;
+      var val = videoSelect.value;
+      for(var opt, j = 0; opt = opts[j]; j++) {
+        if(opt.value == val) {
+          videoSelect.selectedIndex = j;
+          videoSelect.selectedIndex = (j+1) % opts.length;
+          break;
+        }
+      }
+      // Flip video as necessary
+      var videoVals = $.map(videoSelect.options, function(x, i) {
+        return x.value;
+      });
+      if ($.inArray(videoSelect.value, videoVals) % 2 == 0) {
+        $('#video').addClass('flipped');
+      } else {
+        $('#video').removeClass('flipped');
+      }
+    });
 
     // Trigger photo take
     snap.addEventListener("click", function() {
@@ -240,17 +348,41 @@ $(document).ready(function() {
       //console.log(imageData);
       video.pause();
       video.style.display = "none";
-      snap.setAttribute('style', 'display:none !important');
-      retake.style.display = 'inline-block';
       photo.style.display = "block";
+      snap.setAttribute('style', 'display:none !important');
+      camera.setAttribute('style', 'display:none !important');
+      retake.setAttribute('style', 'display:inline-block !important');
+      submitPhoto.setAttribute('style', 'display:inline-block !important');
+    });
+
+    // Trigger to retake photo
+    retake.addEventListener("click", function() {
+      video.play();
+      video.style.display = 'block';
+      photo.style.display = "none";
+      snap.setAttribute('style', 'display:inline-block !important');
+      camera.setAttribute('style', 'display:inline-block !important');
+      retake.setAttribute('style', 'display:none !important');
+      submitPhoto.setAttribute('style', 'display:none !important');
+    });
+
+    // Submit and get score
+    submitPhoto.addEventListener("click", function() {
+      $('#photo-entry').collapse('hide');
+      $('#photo-entry-header').addClass('inactive-header');
+      $('#self-assessment-row').collapse('show');
+      $('#self-assessment-row-header').removeClass('inactive-header');
+
+      window.stream.getTracks()[0].stop();
 
       var dataURL = canvas.toDataURL();
       $.ajax({
-        type: "GET",
-        url: "/score_image/",
+        type: "POST",
+        url: "/score_image",
+        dataType: 'json',
         data: {
           imgBase64: dataURL
-        } 
+        }
       }).done(function(o) {
         console.log('saved');
         // If you want the file to be visible in the browser
@@ -258,21 +390,180 @@ $(document).ready(function() {
         // need is to return the url to the file, you just saved
         // and than put the image in your browser.
       });
-
     });
 
-    // Trigger to retake photo
-    retake.addEventListener("click", function() {
-      retake.setAttribute('style', 'display:none !important');
-      snap.display = 'inline-block';
-      video.play();
-      video.style.display = 'block';
-      photo.style.display = "none";
-      snap.style.display = 'inline-block';
+    // STOPWATCH
+    var Stopwatch = function(elem, options) {
+
+      var timer       = createTimer(),
+          startButton = createButton("timer-start", start),
+          stopButton  = createButton("timer-stop", stop),
+          finishButton = createButton("timer-finish", finish),
+          offset,
+          clock,
+          interval;
+
+      // default options
+      options = options || {};
+      options.delay = options.delay || 1;
+
+      // append elements
+      elem.appendChild(timer);
+      elem.appendChild(startButton);
+      elem.appendChild(stopButton);
+      elem.appendChild(finishButton);
+
+      // initialize
+      reset();
+
+      // private functions
+      function createTimer() {
+        var element = document.createElement("h1");
+        return element;
+      }
+
+      function createButton(buttonID, handler) {
+        var button = document.getElementById(buttonID);
+        button.addEventListener("click", function(event) {
+          handler();
+          event.preventDefault();
+        });
+        return button;
+      }
+
+      function start() {
+        if (!interval) {
+          offset   = Date.now();
+          interval = setInterval(update, options.delay);
+        }
+      }
+
+      function stop() {
+        if (interval) {
+          clearInterval(interval);
+          interval = null;
+        }
+      }
+
+      function reset() {
+        clock = 478000;
+        //clock = 0;
+        render(0);
+      }
+
+      function finish() {
+        if (clock > 0) {
+          bTimer.stop();
+          var sutureTime = document.querySelector('#timer h1').textContent;
+          var sutureTimeElement = document.getElementById('suture-time');
+          sutureTimeElement.innerHTML = sutureTime;
+          sutureTimeElement.value = clock;
+          $('#timer-row').collapse("toggle");
+          $('#timer-row-header').addClass('inactive-header');
+          $('#photo-entry').collapse("show");
+          $('#photo-entry-header').removeClass('inactive-header');
+          startVideo();
+        } else {
+          //document.getElementById('timer-alert').style.display = 'block';
+          $('#timer-alert').fadeIn();
+        }
+        render();
+      }
+
+      function update() {
+        clock += delta();
+        render();
+      }
+
+      function pad(num, size) {
+        var s = "000000000" + num;
+        return s.substr(s.length-size);
+      }
+
+      function render() {
+        var sec2 = clock/1000 % 60;
+        var sec = Math.floor((clock/1000) % 60);
+        var min = Math.floor((clock / (1000*60)) % 60);
+        var hr = Math.floor((clock / (1000*60*60)) % 24);
+        var str = pad(hr, 2) + ":" + pad(min, 2) + ":" + pad(sec, 2);
+        //var str = pad(hr, 2) + ":" + pad(sec2, 2) + ":" + sec;
+        timer.innerHTML = str;
+      }
+
+      function delta() {
+        var now = Date.now(),
+            d   = now - offset;
+
+        offset = now;
+        return d;
+      }
+
+      // public API
+      this.start  = start;
+      this.stop   = stop;
+      this.reset  = reset;
+    };
+
+    var b = document.getElementById("timer");
+    var bTimer = new Stopwatch(b, {delay: 100});
+
+    // Get time score
+    function time_to_score(time) {
+      var time_min = time/1000/60;
+      if (time_min > 16) {
+        return 1;
+      } else if (time_min > 14) {
+        return 2;
+      } else if (time_min > 12) {
+        return 3;
+      } else if (time_min > 10) {
+        return 4;
+      } else {
+        return 5;
+      }
+    }
+
+    // Submit self-assessment, go to scores
+    document.getElementById('self-assessment-submit').addEventListener('click', function() {
+      if ($('.radios:not(:has(:radio:checked))').length) {
+        $('#self-assessment-alert').fadeIn();
+        window.location.href = "#self-assessment-alert";
+        // TODO: Also link back up to the alert (#...)
+      } else {
+        // Fill in self-assessment results
+        $('#results-cut-skin td:eq(0)').append($("input[type='radio'][name='cut-skin']:checked").val());
+        $('#results-distance td:eq(0)').append($("input[type='radio'][name='distance']:checked").val());
+        $('#results-spacing td:eq(0)').append($("input[type='radio'][name='spacing']:checked").val());
+        $('#results-exit-holes td:eq(0)').append($("input[type='radio'][name='exit-holes']:checked").val());
+        // Fill in computed results
+        // TODO: Get scores from picture here?
+        $('#results-time td:eq(1)').append(time_to_score($('#suture-time').val()));
+        // Compute global scores
+        var self_total = [];
+        var score_total = [];
+        console.log($('#results-table tr'));
+        $('#results-table tr').each( function(){
+          //add item to array
+          var self_score = parseInt($('td:eq(0)', this).text());
+          var score_score = parseInt($('td:eq(1)', this).text());
+          if (!isNaN(self_score)) {
+            self_total.push(self_score);
+          }
+          if (!isNaN(score_score)) {
+            score_total.push(score_score);
+          }
+        });
+        $('#results-global td:eq(0)').append(self_total.reduce(function(a, b) { return a + b; }) / self_total.length);
+        $('#results-global td:eq(1)').append(score_total.reduce(function(a, b) { return a + b; }) / score_total.length);
+        // Show/hide sections
+        $('#self-assessment-row').collapse("hide");
+        $('#self-assessment-row-header').addClass('inactive-header');
+        $('#results-row').collapse('show');
+        $('#results-row-header').removeClass('inactive-header');
+      }
     });
+
 
   }, false);
-  
-
 });
 </script>
