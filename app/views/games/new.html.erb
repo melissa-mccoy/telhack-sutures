@@ -224,8 +224,8 @@ $(document).ready(function() {
     html: true,
     trigger: 'hover',
     placement: 'bottom',
-    content: function(){
-      var image = '<img src="'+$(this).data('img') + '" />';
+    content: function () {
+      var image = '<img src="' + $(this).data('img') + '" />';
       var text = '<p>Position your camera such that the inner circle covers the opening and the outer circle is at the edges of the suture. One of your sutures should be at the upper dot.</p>';
       return text + image;
     }
