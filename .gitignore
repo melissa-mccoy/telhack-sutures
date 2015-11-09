@@ -36,3 +36,6 @@ bower.json
 
 # Ignore RubyMines IDE files
 .idea/*
+
+# Ignore pre-compiled assets pipeline (may be causing problems on Heroku)
+publics/assets/*
